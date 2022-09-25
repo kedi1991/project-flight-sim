@@ -1,0 +1,33 @@
+body{
+    background-color: antiquewhite;
+    width: 90%;
+    margin: 0 auto;
+}
+header div{
+background-color: aqua;
+min-height: 5em;
+}
+#flight-screen{
+    position: relative;
+background-color: black;
+min-height: 30em;
+margin: 10px;
+
+}
+#flight-score{
+    background-color: brown;
+    margin: 0 10px;
+    min-height: 10em;
+}
+footer{
+    background-color: aqua;
+    min-height: 5em;
+}
+
+/**game objects*/
+#plane{
+    position: absolute;
+    width:10px;
+    height: 10px;
+    background-color: red;
+}

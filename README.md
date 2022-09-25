@@ -7,7 +7,15 @@ User stories:
 - Should be available in all browsers and platorms
 - should be interesting
 - should have a simple user guide 
-- should be able to give feed back to the user on their progress a
+- should be able to give feed back to the user on their progress as they play
+
+Features
+
+- Display screen big black
+- keyboard control ()
+- Display instruments (speed, landing gear, light indicators, altitude)
+- score
+- Level
 
 Wire frames
 
@@ -20,3 +28,6 @@ Deployment
 Version history:
 
 Credits
+
+ideas:
+https://learn.co/
