@@ -3,6 +3,9 @@ body{
     width: 90%;
     margin: 0 auto;
 }
+input{
+    font-size: xx-large;
+}
 header div{
 background-color: aqua;
 min-height: 5em;
@@ -30,4 +33,10 @@ footer{
     width:10px;
     height: 10px;
     background-color: red;
+}
+#background{
+    position: absolute;
+    width:10px;
+    height: 50px;
+    background-color: rgb(4, 255, 50);
 }
