@@ -17,6 +17,20 @@ Features
 - score
 - Level
 
+PLANE ACTIONS:
+- Acclelerate speed
+- Deccelerate
+- Incline
+- Decline
+
+
+BACKGROUD ACTIONS:
+- It's the background to move
+- Moves to the left to show plan movement forward
+
+CONTROLS:
+- 
+
 Wire frames
 
 Testing
@@ -31,3 +45,5 @@ Credits
 
 ideas:
 https://learn.co/
+
+images : wallpaperaccess.com 

@@ -15,7 +15,7 @@ min-height: 5em;
 background-color: black;
 min-height: 30em;
 margin: 10px;
-
+overflow: hidden;
 }
 #flight-score{
     background-color: brown;
@@ -28,15 +28,21 @@ footer{
 }
 
 /**game objects*/
-#plane{
+/* #plane{
     position: absolute;
     width:10px;
     height: 10px;
     background-color: red;
-}
+} */
 #background{
     position: absolute;
-    width:10px;
-    height: 50px;
-    background-color: rgb(4, 255, 50);
+    height: 100px;
+    width: 500%;
+    background: url("/assets/images/Img_02.png") repeat-x;
+    animation: moveRight 2s linear infinite;
+    bottom: 0;
+}
+
+@keyframes moveRight {
+   100% {transform: translateX(-3000px)}
 }

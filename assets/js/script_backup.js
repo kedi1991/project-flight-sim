@@ -2,13 +2,12 @@
 document.addEventListener("DOMContentLoaded", function(){
     console.log("loaded");
 
-    var background = document.getElementById("background");
+    var plane = document.getElementById("plane");
 
     var num1 = 0;
     var num2 = 0;
 
-    var speed = 7;
-    var left = 0;
+    var speed = 0;
     var altitude = 0;
 
 document.addEventListener("keydown", function(e){
@@ -21,17 +20,21 @@ document.addEventListener("keydown", function(e){
         console.log("Decelerating ...");
         (document.getElementById("speedometer")).value = speed--;
         plane.style.marginLeft = num1-- + "px";
-
-
-
-
     }else if (e.key == "ArrowRight"){
-        console.log("Accelerating ..." + left);
-       
-  
+        console.log("Accelerating ...");
+        (document.getElementById("speedometer")).value = speed++;
+
+        
+        (document.getElementById("accelerator")).value = accelerate();;
+        //accelerator key detection
+        function accelerate(){
+            setInterval( ++altitude, 10);
+            return altitude;
+        }
+        
     
-    }
-    else if (e.key == "ArrowDown"){
+
+    }else if (e.key == "ArrowDown"){
         console.log("Descending ...");
         plane.style.marginTop = num1++ + "px";
         (document.getElementById("altimeter")).value = altitude--;
@@ -45,10 +48,6 @@ document.addEventListener("keydown", function(e){
 });
 });
 /*move forward*/
- function accelerate(increment){
-    return point;
- }
-/**reduce the speed */
- function decelerrate(increment){
-    return --point;
+ function moveForward(point){
+    return ++point;
  }
