@@ -11,26 +11,33 @@ document.addEventListener("DOMContentLoaded", function(){
     var left = 0;
     var altitude = 0;
 
+    var acceleration = 15;
+    var animDuration =  document.getElementById("background").style.animationDuration;
+
 document.addEventListener("keydown", function(e){
     
     if(e.key === "ArrowUp"){
         console.log("Ascending ...");
         plane.style.marginTop = num1-- + "px";
         (document.getElementById("altimeter")).value = altitude++;
+
+
     }else if (e.key == "ArrowLeft"){
-        console.log("Decelerating ...");
-        (document.getElementById("speedometer")).value = speed--;
-        plane.style.marginLeft = num1-- + "px";
+        acceleration = deccelerate(acceleration);
+        document.getElementById("background").style.animationDuration = acceleration + "s";
+        console.log("anim duration: " + document.getElementById("background").style.animationDuration);
 
 
 
-
-    }else if (e.key == "ArrowRight"){
-        console.log("Accelerating ..." + left);
-       
-  
-    
+    }else if (e.key == "ArrowRight"){       
+        acceleration = accelerrate(acceleration);
+       animDuration = acceleration + "s";
+        console.log("anim duration: " + animDuration);
     }
+
+
+
+
     else if (e.key == "ArrowDown"){
         console.log("Descending ...");
         plane.style.marginTop = num1++ + "px";
@@ -45,10 +52,15 @@ document.addEventListener("keydown", function(e){
 });
 });
 /*move forward*/
- function accelerate(increment){
-    return point;
+ function deccelerate(acceleration){
+    return acceleration + .1;
  }
 /**reduce the speed */
- function decelerrate(increment){
-    return --point;
+ function accelerrate(acceleration){
+    return acceleration - .1 ;
+ }
+
+ /**Read for taxi */
+ function taxi(acceleration){
+    
  }
