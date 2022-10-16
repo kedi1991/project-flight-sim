@@ -3,6 +3,15 @@ body{
     width: 90%;
     margin: 0 auto;
 }
+#instruments{
+    display: grid;
+    grid-template-columns: 10% 10%;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+}
+.inst-format{
+    color: greenyellow;
+}
 input{
     font-size: xx-large;
 }
@@ -20,7 +29,7 @@ overflow: hidden;
 #flight-score{
     background-color: brown;
     margin: 0 10px;
-    min-height: 10em;
+    min-height: 5em;
 }
 footer{
     background-color: aqua;
@@ -42,44 +51,49 @@ footer{
     height: 10%;
     width: 12%;
     bottom: 2%;
-    left: 20%
-    
+    left: 20%;    
 }
 @keyframes moveRight {
    100% {transform: translateX(-1000px)}
 }
 
+@keyframes climb {
+    100% {translate: 150px -300px}
+}
+.climb_class{
+    animation: climb 10s linear forwards;
+}
 /**speed adjustment**/
 /*2s is fastested, slowest 100s*/
 .speed0{
-    animation: moveRight 100s linear infinite;
-}
-.speed1{
-    animation: moveRight 80s linear infinite;
-}
-.speed2{
-    animation: moveRight 70s linear  infinite;
-}
-.speed3{
     animation: moveRight 60s linear infinite;
 }
+.speed1{
+    animation: moveRight 30s linear infinite;
+}
+.speed2{
+    animation: moveRight 15s linear  infinite;
+}
+.speed3{
+    animation: moveRight 7s linear infinite;
+}
 .speed4{
-    animation: moveRight 40s linear infinite;
+    animation: moveRight 7s linear infinite;
 }
 .speed5{
-    animation: moveRight 30s linear infinite ;
+    animation: moveRight 8s linear infinite ;
 }
 .speed6{
-    animation: moveRight 20s linear infinite;
+    animation: moveRight 8s linear infinite;
 }
 .speed7{
     animation: moveRight 7s linear infinite;
 }
 .speed8{
-    animation: moveRight 5s linear infinite;
+    animation: moveRight 3s linear infinite;
 }
 .speed9{
-    animation: moveRight 3s linear infinite;
+    animation: moveRight 2s linear infinite;
 }
 .speed10{
     animation: moveRight 1s linear infinite;
