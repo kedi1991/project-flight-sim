@@ -27,37 +27,60 @@ footer{
     min-height: 5em;
 }
 
-/**game objects*/
-/* #plane{
-    position: absolute;
-    width:10px;
-    height: 10px;
-    background-color: red;
-} */
 #background{
     position: absolute;
     height: 100px;
-    width: 500%;
+    width: 5000px;
     background: url("/assets/images/Img_02.png") repeat-x;
-    animation: moveRight 15s linear infinite;
     bottom: 0;
 }
-
-@keyframes moveRight {
-   100% {transform: translateX(-3000px)}
+#craft{
+    position: absolute;
+    background-image: url("/assets/images/plane.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 10%;
+    width: 12%;
+    bottom: 2%;
+    left: 20%
+    
 }
-/*taxi*/
-@keyframes taxi {
-    10% {transform: translateX(-3000px)}
-    20% {transform: translateX(-3000px)}
-    30% {transform: translateX(-3000px)}
-    40% {transform: translateX(-3000px)}
-    50% {transform: translateX(-3000px)}
-    60% {transform: translateX(-3000px)}
-    70% {transform: translateX(-3000px)}
-    80% {transform: translateX(-3000px)}
-    90% {transform: translateX(-3000px)}
-    100% {transform: translateX(-3000px)}
+@keyframes moveRight {
+   100% {transform: translateX(-1000px)}
+}
 
-
- }
+/**speed adjustment**/
+/*2s is fastested, slowest 100s*/
+.speed0{
+    animation: moveRight 100s linear infinite;
+}
+.speed1{
+    animation: moveRight 80s linear infinite;
+}
+.speed2{
+    animation: moveRight 70s linear  infinite;
+}
+.speed3{
+    animation: moveRight 60s linear infinite;
+}
+.speed4{
+    animation: moveRight 40s linear infinite;
+}
+.speed5{
+    animation: moveRight 30s linear infinite ;
+}
+.speed6{
+    animation: moveRight 20s linear infinite;
+}
+.speed7{
+    animation: moveRight 7s linear infinite;
+}
+.speed8{
+    animation: moveRight 5s linear infinite;
+}
+.speed9{
+    animation: moveRight 3s linear infinite;
+}
+.speed10{
+    animation: moveRight 1s linear infinite;
+}

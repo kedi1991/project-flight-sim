@@ -10,9 +10,13 @@ document.addEventListener("DOMContentLoaded", function(){
     var speed = 7;
     var left = 0;
     var altitude = 0;
+    var time = 0;
+    var gear = 0;
 
     var acceleration = 15;
     var animDuration =  document.getElementById("background").style.animationDuration;
+
+
 
 document.addEventListener("keydown", function(e){
     
@@ -27,15 +31,14 @@ document.addEventListener("keydown", function(e){
         document.getElementById("background").style.animationDuration = acceleration + "s";
         console.log("anim duration: " + document.getElementById("background").style.animationDuration);
 
-
-
     }else if (e.key == "ArrowRight"){       
-        acceleration = accelerrate(acceleration);
-       animDuration = acceleration + "s";
-        console.log("anim duration: " + animDuration);
+       
+        //start the timer and take off--
+        if(time == 0){
+        mainFrames();
+       } 
     }
-
-
+    
 
 
     else if (e.key == "ArrowDown"){
@@ -45,22 +48,69 @@ document.addEventListener("keydown", function(e){
     }else{
         console.log("Error: Unknown control ...");
         
-    }
-    /**console.log(num1++);
-*/
-    
+    }  
 });
-});
-/*move forward*/
- function deccelerate(acceleration){
-    return acceleration + .1;
- }
-/**reduce the speed */
- function accelerrate(acceleration){
-    return acceleration - .1 ;
- }
 
- /**Read for taxi */
- function taxi(acceleration){
+//move the background to show speed
+function mainFrames(){
+   
+    setInterval(function()
+    {for(var i = 0; i< 1; i++)
+        {
+        time++; 
+        console.log("time is: "+ time)
+       
+            if(time <= 10){
+                gear = 0;
+                console.log("gear: "+ gear);
+                background.classList.add("speed" + gear);
+            }else if (time <= 20){
+                background.classList.remove("speed" + gear);
+                gear = 1;
+                background.classList.add("speed" + gear);
+                console.log("gear: "+ gear);
+            }else if (time <= 30){
+                background.classList.remove("speed" + gear);
+                gear = 2;
+                background.classList.add("speed" + gear);
+            }else if (time <=40){
+                background.classList.remove("speed" + gear);
+                gear =3;
+                background.classList.add("speed" + gear);
+            }else if (time <=50){
+                background.classList.remove("speed" + gear);
+                gear =4;
+                background.classList.add("speed" + gear);
+            }else if (time <= 60){
+                background.classList.remove("speed" + gear);
+                gear =5;
+                background.classList.add("speed" + gear);
+            }else if (time <=70){
+                background.classList.remove("speed" + gear);
+                gear=6;
+                background.classList.add("speed" + gear);
+            }else if (time <=80){
+                background.classList.remove("speed" + gear);
+                gear=7;
+                background.classList.add("speed" + gear);
+            }else if (time <=90){
+                background.classList.remove("speed" + gear);
+                gear=9;
+                background.classList.add("speed" + gear);
+            }else{
+                background.classList.remove("speed" + gear);
+                gear=10;
+                background.classList.add("speed" + gear);
+            }
+        
+        }
+        
     
- }
+    }, 1000);
+        
+   
+  }
+
+
+});
+

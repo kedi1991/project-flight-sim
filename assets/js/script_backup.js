@@ -32,7 +32,32 @@ document.addEventListener("keydown", function(e){
             return altitude;
         }
         
-    
+        if(time <= 10){
+            gear++
+            console.log("gear: "+ gear);
+            background.classList.add("speed" + gear);
+        }else if (time > 10 && time <= 20){
+            gear++
+            background.classList.add("speed" + gear);
+            console.log("gear: "+ gear);
+        }else if (time <= 30){
+            background.classList.remove("speed" + gear);
+            gear++
+            background.classList.add("speed" + gear);
+        }else if (time <=40){
+            background.classList.remove("speed" + gear);
+            gear++
+            background.classList.add("speed" + gear);
+        }else if (time <=50){
+            background.classList.remove("speed" + gear);
+            gear++
+            background.classList.add("speed" + gear);
+        }else{
+            background.classList.remove("speed" + gear);
+            gear++
+            background.classList.add("speed" + gear);
+        }
+       
 
     }else if (e.key == "ArrowDown"){
         console.log("Descending ...");
