@@ -48,10 +48,13 @@ footer{
     background-image: url("/assets/images/plane.gif");
     background-size: contain;
     background-repeat: no-repeat;
-    height: 10%;
+    /* height: 10%;
+    width: 12%; */
     width: 12%;
+    height: 2px;
     bottom: 2%;
-    left: 20%;    
+    left: 20%;   
+    background-color: bisque; 
 }
 @keyframes moveRight {
    100% {transform: translateX(-1000px)}
@@ -81,7 +84,7 @@ footer{
     animation: moveRight 7s linear infinite;
 }
 .speed5{
-    animation: moveRight 8s linear infinite ;
+    animation: moveRight 8s linear infinite;
 }
 .speed6{
     animation: moveRight 8s linear infinite;
