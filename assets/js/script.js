@@ -7,6 +7,22 @@ document.addEventListener("DOMContentLoaded", function(){
     var inst_velocity = document.getElementById("velocity_val");
     var craft_rotation = 0;
 
+    var marks = document.getElementsByClassName("middle_mark");
+    var flight_screen = document.getElementById("flight-screen");
+    var xx = 0;
+
+    setInterval(function(){
+        console.log("right: "+ Math.floor(marks[0].getBoundingClientRect().x));
+        console.log("screen: "+ Math.floor(flight_screen.getBoundingClientRect().x));
+        console.log("full dims: "+ flight_screen.getBoundingClientRect());
+        console.log("xx ;" + xx);
+
+        xx = Math.floor(marks[0].getBoundingClientRect().left);
+        xx = xx + 1;
+        marks[0].style.left = xx + "px";
+    }, 1000);
+
+    
     var velocity = 0;
     var left = 0;
     var altitude = 0;
@@ -43,14 +59,17 @@ document.addEventListener("keydown", function(e){
 
 //move the background to show speed
 function full_thrust(){
-   
+   //move the runway lines
+    
     setInterval(function()
     {for(var i = 0; i< 1; i++)
         {
         time++; 
+        
         console.log("time is: "+ time)
         inst_time.innerHTML = time + " sec";
 
+       
         inst_velocity.innerHTML = velocity;
 
             if(time <= 10){

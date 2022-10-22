@@ -35,6 +35,26 @@ footer{
     background-color: aqua;
     min-height: 5em;
 }
+/* runway graphics here */
+#runway{
+    width: 100%;
+    height: 3.5em;
+    background-color: #2d2e2d;
+    bottom: 0;
+    position: absolute;
+}
+.middle_mark{
+    width: 5%;
+    top: 45%;
+    background-color: azure;
+    height: 10%;
+    position: absolute;
+    /* animation: middle_mark_anim 3s infinite linear; */
+}
+
+@keyframes middle_mark_anim {
+    100%{transform: translateX(100px)}
+}
 
 #background{
     position: absolute;
@@ -48,13 +68,13 @@ footer{
     background-image: url("/assets/images/plane.gif");
     background-size: contain;
     background-repeat: no-repeat;
-    /* height: 10%;
-    width: 12%; */
+    height: 10%;
     width: 12%;
-    height: 2px;
+    /* width: 12%;
+    height: 2px; */
     bottom: 2%;
     left: 20%;   
-    background-color: bisque; 
+    /* background-color: bisque;  */
 }
 @keyframes moveRight {
    100% {transform: translateX(-1000px)}
