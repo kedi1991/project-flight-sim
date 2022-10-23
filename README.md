@@ -24,6 +24,10 @@ PLANE ACTIONS:
 - Decline
 
 
+ANIMATION CONCEPT:
+- make animation key frames with fixed seconds
+-use setInterval in the JS to add class with different animation keyframe speeds to create an illusion of acceleration
+
 BACKGROUD ACTIONS:
 - It's the background to move
 - Moves to the left to show plan movement forward
