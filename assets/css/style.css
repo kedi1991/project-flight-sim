@@ -49,11 +49,15 @@ footer{
     background-color: azure;
     height: 10%;
     position: absolute;
-    /* animation: middle_mark_anim 3s infinite linear; */
 }
 
 @keyframes middle_mark_anim {
-    100%{transform: translateX(100px)}
+    100%{transform: translateX(300px)}
+}
+/* class for the middle mark anim */
+.middle_mark_anim{
+    animation: middle_mark_anim 500ms infinite linear; 
+
 }
 
 #background{

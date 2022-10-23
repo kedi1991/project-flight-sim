@@ -9,18 +9,22 @@ document.addEventListener("DOMContentLoaded", function(){
 
     var marks = document.getElementsByClassName("middle_mark");
     var flight_screen = document.getElementById("flight-screen");
-    var xx = 0;
-
+    var xx = Math.floor(marks[0].getBoundingClientRect().x);
+    //start for the runway animation;
     setInterval(function(){
-        console.log("right: "+ Math.floor(marks[0].getBoundingClientRect().x));
+        console.log("right x: " + xx);
         console.log("screen: "+ Math.floor(flight_screen.getBoundingClientRect().x));
         console.log("full dims: "+ flight_screen.getBoundingClientRect());
-        console.log("xx ;" + xx);
-
-        xx = Math.floor(marks[0].getBoundingClientRect().left);
+        
         xx = xx + 1;
-        marks[0].style.left = xx + "px";
-    }, 1000);
+        //marks[0].style.right = xx + "px";
+        marks[0].classList.add("middle_mark_anim");
+
+        // if ( xx == "700"){
+        //     xx = -50;
+        // }
+
+    }, 1);
 
     
     var velocity = 0;
