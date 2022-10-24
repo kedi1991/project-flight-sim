@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded", function(){
     var craft_rotation = 0;
 
     var marks = document.getElementsByClassName("middle_mark");
+//set the postitions of the middle marks
+
+
+    //initial positions
+    marks[1].classList.add("middle_mark_anim_a");
+    marks[2].classList.add("middle_mark_anim_b");
+    marks[3].classList.add("middle_mark_anim_c");
+   marks[4].classList.add("middle_mark_anim_d");
+   marks[5].classList.add("middle_mark_anim_e");
+
+
     var flight_screen = document.getElementById("flight-screen");
     var xx = Math.floor(marks[0].getBoundingClientRect().x);
     //start for the runway animation;
@@ -17,12 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log("full dims: "+ flight_screen.getBoundingClientRect());
         
         xx = xx + 1;
-        //marks[0].style.right = xx + "px";
-        marks[0].classList.add("middle_mark_anim");
-
-        // if ( xx == "700"){
-        //     xx = -50;
-        // }
+        
 
     }, 1);
 

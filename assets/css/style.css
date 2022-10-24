@@ -3,6 +3,7 @@ body{
     width: 90%;
     margin: 0 auto;
 }
+
 #instruments{
     display: grid;
     grid-template-columns: 10% 10%;
@@ -43,24 +44,48 @@ footer{
     bottom: 0;
     position: absolute;
 }
+
+/* MIDDLE MARK DATA */
 .middle_mark{
-    width: 5%;
+    width: 2%;
     top: 45%;
     background-color: azure;
-    height: 10%;
+    height: 5%;
     position: absolute;
 }
-
-@keyframes middle_mark_anim {
-    /* 100%{transform: translateX(300px)} */
+@keyframes middle_mark_anim_a {
     from {right:-5%;}
     to {right: 100%}
 }
-/* class for the middle mark anim */
-.middle_mark_anim{
-    animation: middle_mark_anim 2s infinite linear; 
-
+.middle_mark_anim_a{
+    animation: middle_mark_anim_a 2s infinite linear; 
 }
+@keyframes middle_mark_anim_b {
+    from {right:-20%;} to {right: 85%}
+}
+.middle_mark_anim_b{
+    animation: middle_mark_anim_b 2s infinite linear; 
+}
+@keyframes middle_mark_anim_c {
+    from {right:-35%;} to {right: 70%}
+}
+.middle_mark_anim_c{
+    animation: middle_mark_anim_c 2s infinite linear; 
+}
+@keyframes middle_mark_anim_d {
+    from {right:-50%;} to {right: 55%}
+}
+.middle_mark_anim_d{
+    animation: middle_mark_anim_d 2s infinite linear; 
+}
+@keyframes middle_mark_anim_e {
+    from {right:-65%;} to {right: 40%}
+}
+.middle_mark_anim_e{
+    animation: middle_mark_anim_e 2s infinite linear; 
+}
+
+/* MIDDLE MARK DATA */
 
 #background{
     position: absolute;
