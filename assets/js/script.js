@@ -1,25 +1,35 @@
 /*check that evrything is loaded before the game starts*/
 document.addEventListener("DOMContentLoaded", function(){
     console.log("loaded");
+    //the clock value. Used to synchronise all events
+    var time = 0;
+    var craft_rotation = 0;
+    var velocity = 0;
+    var left = 0;
+    var altitude = 0;
+    var time = 0;
+    var gear = 0;
 
+    //speed checkPoints used to control animation speed
+    var speed0 = 20;
+    var speed1 = 10;
+    var speed2 = 5;
+     
     var background = document.getElementById("background");
     var inst_time = document.getElementById("flighttime_val");
     var inst_velocity = document.getElementById("velocity_val");
-    var craft_rotation = 0;
-
     var marks = document.getElementsByClassName("middle_mark");
-//set the postitions of the middle marks
-
-
-    //initial positions
-    marks[1].classList.add("middle_mark_anim_a");
-    marks[2].classList.add("middle_mark_anim_b");
-    marks[3].classList.add("middle_mark_anim_c");
-   marks[4].classList.add("middle_mark_anim_d");
-   marks[5].classList.add("middle_mark_anim_e");
-
-
     var flight_screen = document.getElementById("flight-screen");
+    var craft =  document.getElementById("craft");
+
+    //the clock /counter used to manipulate events
+    setInterval(function(){
+        time++;
+        inst_time.innerHTML = time + ".0 sec";
+    }, 1000);
+    
+    //initial positions
+
     var xx = Math.floor(marks[0].getBoundingClientRect().x);
     //start for the runway animation;
     setInterval(function(){
@@ -33,13 +43,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }, 1);
 
     
-    var velocity = 0;
-    var left = 0;
-    var altitude = 0;
-    var time = 0;
-    var gear = 0;
 
-    var craft =  document.getElementById("craft");
 
 document.addEventListener("keydown", function(e){
     /**rotate the plane for climb */
@@ -53,9 +57,13 @@ document.addEventListener("keydown", function(e){
         gear = gear - 1;
     //start the timer and take off--
     }else if (e.key == "ArrowRight"){       
-        if(time == 0){
+        //move the middle lines
+        setInterval(() => {
+            moveLines(time);
+
+        }, 1);
         full_thrust();
-       } 
+       
     }
     /**rotate the plane for cruise or landing */
     else if (e.key == "ArrowDown"){
@@ -67,6 +75,20 @@ document.addEventListener("keydown", function(e){
     }  
 });
 
+//move the runway lines
+function moveLines(time){
+    var current_time = time;
+    marks[0].classList.add("speed_a");
+    if(time == 4){
+    marks[1].classList.add("speed_a");
+    }
+    if(time == 8){
+        marks[2].classList.add("speed_a");
+    }
+}
+
+
+
 //move the background to show speed
 function full_thrust(){
    //move the runway lines
@@ -74,10 +96,7 @@ function full_thrust(){
     setInterval(function()
     {for(var i = 0; i< 1; i++)
         {
-        time++; 
         
-        console.log("time is: "+ time)
-        inst_time.innerHTML = time + " sec";
 
        
         inst_velocity.innerHTML = velocity;

@@ -53,25 +53,37 @@ footer{
     height: 5%;
     position: absolute;
 }
-@keyframes speed_a {
-    from {right:-5%;} to {right: 100%}
+@keyframes middle_mark_anim_a {
+    from {right:-5%;}
+    to {right: 100%}
 }
-.speed_a{
-    animation: speed_a 20s infinite linear; 
+.middle_mark_anim_a{
+    animation: middle_mark_anim_a 2s infinite linear; 
 }
-@keyframes speed_b {
-    from {right:-5%;} to {right: 100%}
+@keyframes middle_mark_anim_b {
+    from {right:-20%;} to {right: 85%}
 }
-.speed_b{
-    animation: speed_b 10s infinite linear; 
+.middle_mark_anim_b{
+    animation: middle_mark_anim_b 2s infinite linear; 
 }
-@keyframes speed_c {
-    from {right:-5%;} to {right: 100%}
+@keyframes middle_mark_anim_c {
+    from {right:-35%;} to {right: 70%}
 }
-.speed_c{
-    animation: speed_c 5s infinite linear; 
+.middle_mark_anim_c{
+    animation: middle_mark_anim_c 2s infinite linear; 
 }
-
+@keyframes middle_mark_anim_d {
+    from {right:-50%;} to {right: 55%}
+}
+.middle_mark_anim_d{
+    animation: middle_mark_anim_d 2s infinite linear; 
+}
+@keyframes middle_mark_anim_e {
+    from {right:-65%;} to {right: 40%}
+}
+.middle_mark_anim_e{
+    animation: middle_mark_anim_e 2s infinite linear; 
+}
 
 /* MIDDLE MARK DATA */
 
