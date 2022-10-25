@@ -22,11 +22,6 @@ document.addEventListener("DOMContentLoaded", function(){
     var flight_screen = document.getElementById("flight-screen");
     var craft =  document.getElementById("craft");
 
-    //the clock /counter used to manipulate events
-    setInterval(function(){
-        time++;
-        inst_time.innerHTML = time + ".0 sec";
-    }, 1000);
     
     //initial positions
 
@@ -56,7 +51,15 @@ document.addEventListener("keydown", function(e){
         deccelerate(gear);
         gear = gear - 1;
     //start the timer and take off--
-    }else if (e.key == "ArrowRight"){       
+    }else if (e.key == "ArrowRight"){    
+        
+        //the clock /counter used to manipulate events
+        if(time == 0){
+        setInterval(function(){
+            time++;
+            inst_time.innerHTML = time + ".0 sec";
+        }, 1000);
+    }
         //move the middle lines
         setInterval(() => {
             moveLines(time);
