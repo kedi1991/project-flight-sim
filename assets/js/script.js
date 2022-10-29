@@ -1,6 +1,5 @@
 /*check that evrything is loaded before the game starts*/
 document.addEventListener("DOMContentLoaded", function(){
-    console.log("loaded");
     //the clock value. Used to synchronise all events
     var time = 0;
     var craft_rotation = 0;
@@ -28,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function(){
     var xx = Math.floor(marks[0].getBoundingClientRect().x);
     //start for the runway animation;
     setInterval(function(){
-        console.log("right x: " + xx);
-        console.log("screen: "+ Math.floor(flight_screen.getBoundingClientRect().x));
-        console.log("full dims: "+ flight_screen.getBoundingClientRect());
+        //console.log("right x: " + xx);
+       // console.log("screen: "+ Math.floor(flight_screen.getBoundingClientRect().x));
+       // console.log("full dims: "+ flight_screen.getBoundingClientRect());
         
         xx = xx + 1;
         
@@ -106,7 +105,6 @@ function full_thrust(){
 
             if(time <= 10){
                 gear = 0;
-                console.log("gear: "+ gear);
                 background.classList.add("speed" + gear);
                 velocity = 10 + " mph";
 
@@ -114,7 +112,6 @@ function full_thrust(){
                 background.classList.remove("speed" + gear);
                 gear = 1;
                 background.classList.add("speed" + gear);
-                console.log("gear: "+ gear);
                 velocity = 40 + " mph";
             }else if (time <= 30){
                 background.classList.remove("speed" + gear);
@@ -171,5 +168,34 @@ function deccelerate(gear){
         gear = gear - 1;
     }
    
+
+//Altitude controller based on attack angle
+
+/***
+ * For every 1 deg, increase
+ * 
+ */
+setInterval(function(){
+    if (craft_rotation <= -16){
+        console.log("plane stall warning");
+        craft_rotation = -15;
+    }
+    else if(craft_rotation >= 6){
+        console.log("plane stall warning");
+        craft_rotation = 5
+    }
+    else if(craft_rotation == 0){
+        console.log("plane cruise level");
+
+    }
+    else{
+        //manipulate the descend and ascend (valid value -15 to 5)
+        if ((craft_rotation >= -16) && (craft_rotation <= -12)){
+        
+        }
+
+    }
+}, 1);
+
 });
 

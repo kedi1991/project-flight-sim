@@ -105,6 +105,13 @@ footer{
 .climb_class{
     animation: climb 10s linear forwards;
 }
+.descend_class{
+    animation: descend 10s linear forwards;
+}
+@keyframes descend {
+    100% {translate: 150px 300px}
+}
+
 /**speed adjustment**/
 /*2s is fastested, slowest 100s*/
 .speed0{

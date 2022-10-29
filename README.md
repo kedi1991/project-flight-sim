@@ -24,6 +24,14 @@ PLANE ACTIONS:
 - Decline
 
 
+GAMEPLAY INSTRUCTIONS:
+
+- Press Spacebar to prepare for taxi
+- Press Press Right arrow key for take-off
+- Press Up arrow Key to ascend
+- Press Down arrow to descend
+- Press Left arrow to reduce speed
+
 ANIMATION CONCEPT:
 - make animation key frames with fixed seconds
 -use setInterval in the JS to add class with different animation keyframe speeds to create an illusion of acceleration
