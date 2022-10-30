@@ -82,6 +82,23 @@ footer{
     background: url("/assets/images/Img_02.png") repeat-x;
     bottom: 0;
 }
+#tower{
+    position: absolute;
+    background-image: url("/assets/images/control_tower.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40%;
+    width: 20%;
+    bottom: 6%;
+    right: 10%; 
+}
+@keyframes tower_taxi {
+    from {right:-10%;} to {right: 80%}
+}
+.tower_taxi{
+    animation: tower_taxi 20s forwards;
+    animation-timing-function: ease; 
+}
 #craft{
     position: absolute;
     background-image: url("/assets/images/plane.gif");
@@ -91,10 +108,21 @@ footer{
     width: 12%;
     /* width: 12%;
     height: 2px; */
-    bottom: 2%;
+    bottom: 4%;
     left: 20%;   
     /* background-color: bisque;  */
 }
+@keyframes cruise {
+    0% {translate: 0px 1px}
+    50% {translate: 0px -1px}
+    70% {translate: 0px 0px}
+    100%{translate: 0px 1px;}
+}
+.cruise_class{
+    animation: cruise 1s linear infinite forwards;
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
 @keyframes moveRight {
    100% {transform: translateX(-1000px)}
 }
@@ -109,7 +137,7 @@ footer{
     animation: descend 10s linear forwards;
 }
 @keyframes descend {
-    100% {translate: 150px 300px}
+    100% {transform: translate(150px 300px)}
 }
 
 /**speed adjustment**/

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var craft_rotation = 0;
     var velocity = 0;
     var left = 0;
-    var altitude = 0;
+    var altitude = 4.000;
     var time = 0;
     var gear = 0;
 
@@ -20,31 +20,14 @@ document.addEventListener("DOMContentLoaded", function(){
     var marks = document.getElementsByClassName("middle_mark");
     var flight_screen = document.getElementById("flight-screen");
     var craft =  document.getElementById("craft");
-
-    
-    //initial positions
-
-    var xx = Math.floor(marks[0].getBoundingClientRect().x);
-    //start for the runway animation;
-    setInterval(function(){
-        //console.log("right x: " + xx);
-       // console.log("screen: "+ Math.floor(flight_screen.getBoundingClientRect().x));
-       // console.log("full dims: "+ flight_screen.getBoundingClientRect());
-        
-        xx = xx + 1;
-        
-
-    }, 1);
-
-    
-
+    var tower = document.getElementById("tower");
 
 document.addEventListener("keydown", function(e){
     /**rotate the plane for climb */
     if(e.key === "ArrowUp"){
         craft_rotation--;
         craft.style.rotate = craft_rotation + "deg";
-        craft.classList.add("climb_class");
+        //craft.classList.add("climb_class");
     /**reduce thrust */    
     }else if (e.key == "ArrowLeft"){
         deccelerate(gear);
@@ -54,6 +37,7 @@ document.addEventListener("keydown", function(e){
         
         //the clock /counter used to manipulate events
         if(time == 0){
+        prepareForTaxi();
         setInterval(function(){
             time++;
             inst_time.innerHTML = time + ".0 sec";
@@ -71,7 +55,8 @@ document.addEventListener("keydown", function(e){
     else if (e.key == "ArrowDown"){
         craft_rotation++;
         craft.style.rotate = craft_rotation + "deg";
-    /***Any unknown control pressed */    
+        //craft.classList.add("descend_class");
+
     }else{
         console.log("Error: Unknown control ...");    
     }  
@@ -79,14 +64,18 @@ document.addEventListener("keydown", function(e){
 
 //move the runway lines
 function moveLines(time){
-    var current_time = time;
+
     marks[0].classList.add("speed_a");
     if(time == 4){
-    marks[1].classList.add("speed_a");
+        marks[1].classList.add("speed_a");
     }
     if(time == 8){
         marks[2].classList.add("speed_a");
     }
+}
+//Prepare for take-off
+function prepareForTaxi(){
+    tower.classList.add("tower_taxi");
 }
 
 
@@ -186,12 +175,32 @@ setInterval(function(){
     }
     else if(craft_rotation == 0){
         console.log("plane cruise level");
+        craft.classList.add("cruise_class");
+        craft.classList.remove("climb_class");
+        craft.classList.remove("descend_class");
 
     }
     else{
         //manipulate the descend and ascend (valid value -15 to 5)
         if ((craft_rotation >= -16) && (craft_rotation <= -12)){
-        
+            altitude = altitude + 0.05;
+            craft.style.bottom = parseFloat(altitude) + parseFloat(0.05) + "%"; 
+        }
+        else if ((craft_rotation > -12) && (craft_rotation <= -8)){
+            altitude = altitude + 0.03;
+            craft.style.bottom = parseFloat(altitude) + parseFloat(0.03) + "%"; 
+        }else if((craft_rotation > -8) && (craft_rotation <= -1)){
+            altitude = altitude + 0.01;
+            craft.style.bottom = parseFloat(altitude) + parseFloat(0.01) + "%"; 
+        }else if((craft_rotation > 0) && (craft_rotation <= 2)){
+            altitude = altitude - 0.01;
+            craft.style.bottom = parseFloat(altitude) + parseFloat(0.01) + "%"; 
+        }else if((craft_rotation > 2) && (craft_rotation <= 4)){
+            altitude = altitude - 0.03;
+            craft.style.bottom = parseFloat(altitude) + parseFloat(0.03) + "%"; 
+        }else if((craft_rotation > 4) && (craft_rotation <= 6)){
+            altitude = altitude - 0.05;
+            craft.style.bottom = parseFloat(altitude) + parseFloat(0.05) + "%"; 
         }
 
     }
