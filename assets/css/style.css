@@ -90,7 +90,7 @@ footer{
     height: 40%;
     width: 20%;
     bottom: 6%;
-    right: 10%; 
+    right: -10%; 
 }
 @keyframes tower_taxi {
     from {right:-10%;} to {right: 80%}
