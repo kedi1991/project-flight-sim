@@ -2,15 +2,17 @@
 document.addEventListener("DOMContentLoaded", function(){
     //the clock value. Used to synchronise all events
     var time = 0;
-
+    //distance moved by the plane
     var distance = -5.00;
+    //plane engines on, OK from control tower
     var readyForTaxi = false;
-
+    //angle of the plan nose
     var craft_rotation = 0;
     var velocity = 0;
     var left = 0;
+    //height of the plane above ground
     var altitude = 4.000;
-    var time = 0;
+    //speed of the plane
     var gear = 0;
 
     //speed checkPoints used to control animation speed
@@ -22,8 +24,6 @@ document.addEventListener("DOMContentLoaded", function(){
     var inst_time = document.getElementById("flighttime_val");
     var inst_velocity = document.getElementById("velocity_val");
     var marks = document.getElementsByClassName("middle_mark");
-
-   
 
     var flight_screen = document.getElementById("flight-screen");
     var craft =  document.getElementById("craft");
