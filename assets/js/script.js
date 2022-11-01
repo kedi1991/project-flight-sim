@@ -2,6 +2,10 @@
 document.addEventListener("DOMContentLoaded", function(){
     //the clock value. Used to synchronise all events
     var time = 0;
+
+    var distance = -5.00;
+    var readyForTaxi = false;
+
     var craft_rotation = 0;
     var velocity = 0;
     var left = 0;
@@ -18,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function(){
     var inst_time = document.getElementById("flighttime_val");
     var inst_velocity = document.getElementById("velocity_val");
     var marks = document.getElementsByClassName("middle_mark");
+
+   
+
     var flight_screen = document.getElementById("flight-screen");
     var craft =  document.getElementById("craft");
     var tower = document.getElementById("tower");
@@ -37,17 +44,22 @@ document.addEventListener("keydown", function(e){
         
         //the clock /counter used to manipulate events
         if(time == 0){
-        prepareForTaxi();
+        setInterval(function(){
+            if (time <= 28){
+                moveLinesTaxi(distance)
+                distance = distance + 0.03;
+            }
+            else{
+                readyForTaxi = true;
+                clearInterval();
+               // moveLines(time);
+            }
+        }, 10);
         setInterval(function(){
             time++;
             inst_time.innerHTML = time + ".0 sec";
         }, 1000);
     }
-        //move the middle lines
-        setInterval(() => {
-            moveLines(time);
-
-        }, 1);
         full_thrust();
        
     }
@@ -62,20 +74,75 @@ document.addEventListener("keydown", function(e){
     }  
 });
 
-//move the runway lines
-function moveLines(time){
+document.addEventListener("keydown", function(e){
+    if ((e.key == "ArrowRight") && readyForTaxi){
+        console.log(".....");
+        setInterval(function(){
+            moveLinesTaxi(distance);
+            distance = distance + 0.03;
 
-    marks[0].classList.add("speed_a");
-    if(time == 4){
-        marks[1].classList.add("speed_a");
+        }, 10);
+        
     }
-    if(time == 8){
-        marks[2].classList.add("speed_a");
-    }
+});
+
+//move environment in preparation to taxi
+function moveLinesTaxi(distance){
+    tower.style.right = parseFloat(distance) + parseFloat(0.03) + "%"; 
+    marks[0].style.right = parseFloat(distance) + parseFloat(0.03) + "%"; 
+    marks[1].style.right = parseFloat(distance - 10.00) + parseFloat(0.03) + "%";
+    marks[2].style.right = parseFloat(distance - 20.00) + parseFloat(0.03) + "%";
+    marks[3].style.right = parseFloat(distance - 30.00) + parseFloat(0.03) + "%";
+    marks[4].style.right = parseFloat(distance - 40.00) + parseFloat(0.03) + "%";
+    marks[5].style.right = parseFloat(distance - 50.00) + parseFloat(0.03) + "%";
+    marks[6].style.right = parseFloat(distance - 60.00) + parseFloat(0.03) + "%";
+    marks[7].style.right = parseFloat(distance - 70.00) + parseFloat(0.03) + "%";
+    marks[8].style.right = parseFloat(distance - 80.00) + parseFloat(0.03) + "%";
+    marks[9].style.right = parseFloat(distance - 90.00) + parseFloat(0.03) + "%";
+    marks[10].style.right = parseFloat(distance - 100.00) + parseFloat(0.03) + "%";
+    marks[11].style.right = parseFloat(distance - 110.00) + parseFloat(0.03) + "%";
+    marks[12].style.right = parseFloat(distance - 120.00) + parseFloat(0.03) + "%"; 
+    marks[13].style.right = parseFloat(distance - 130.00) + parseFloat(0.03) + "%";
+    marks[14].style.right = parseFloat(distance - 140.00) + parseFloat(0.03) + "%";
+    marks[15].style.right = parseFloat(distance - 150.00) + parseFloat(0.03) + "%";
+    marks[16].style.right = parseFloat(distance - 160.00) + parseFloat(0.03) + "%";
+    marks[17].style.right = parseFloat(distance - 170.00) + parseFloat(0.03) + "%";
+    marks[18].style.right = parseFloat(distance - 180.00) + parseFloat(0.03) + "%";
+    marks[19].style.right = parseFloat(distance - 190.00) + parseFloat(0.03) + "%";
+    marks[20].style.right = parseFloat(distance - 200.00) + parseFloat(0.03) + "%";
+    marks[21].style.right = parseFloat(distance - 210.00) + parseFloat(0.03) + "%";
+    marks[22].style.right = parseFloat(distance - 220.00) + parseFloat(0.03) + "%";
+    marks[23].style.right = parseFloat(distance - 230.00) + parseFloat(0.03) + "%";
+    marks[24].style.right = parseFloat(distance - 240.00) + parseFloat(0.03) + "%"; 
+    marks[25].style.right = parseFloat(distance - 250.00) + parseFloat(0.03) + "%";
+    marks[26].style.right = parseFloat(distance - 260.00) + parseFloat(0.03) + "%";
+    marks[27].style.right = parseFloat(distance - 270.00) + parseFloat(0.03) + "%";
+    marks[28].style.right = parseFloat(distance - 280.00) + parseFloat(0.03) + "%";
+    marks[29].style.right = parseFloat(distance - 290.00) + parseFloat(0.03) + "%";
+    marks[30].style.right = parseFloat(distance - 300.00) + parseFloat(0.03) + "%";
+    marks[31].style.right = parseFloat(distance - 310.00) + parseFloat(0.03) + "%";
+    marks[32].style.right = parseFloat(distance - 320.00) + parseFloat(0.03) + "%";
+    marks[33].style.right = parseFloat(distance - 330.00) + parseFloat(0.03) + "%";
+    marks[34].style.right = parseFloat(distance - 340.00) + parseFloat(0.03) + "%";
+    marks[35].style.right = parseFloat(distance - 350.00) + parseFloat(0.03) + "%";
+    marks[36].style.right = parseFloat(distance - 360.00) + parseFloat(0.03) + "%"; 
+    marks[37].style.right = parseFloat(distance - 370.00) + parseFloat(0.03) + "%";
+    marks[38].style.right = parseFloat(distance - 380.00) + parseFloat(0.03) + "%";
+    marks[39].style.right = parseFloat(distance - 390.00) + parseFloat(0.03) + "%";
+    marks[40].style.right = parseFloat(distance - 400.00) + parseFloat(0.03) + "%";
+    marks[41].style.right = parseFloat(distance - 410.00) + parseFloat(0.03) + "%";
+    marks[42].style.right = parseFloat(distance - 420.00) + parseFloat(0.03) + "%";
+    marks[43].style.right = parseFloat(distance - 430.00) + parseFloat(0.03) + "%";
+    marks[44].style.right = parseFloat(distance - 440.00) + parseFloat(0.03) + "%";
+    marks[45].style.right = parseFloat(distance - 450.00) + parseFloat(0.03) + "%";
+    marks[46].style.right = parseFloat(distance - 460.00) + parseFloat(0.03) + "%";
+    marks[47].style.right = parseFloat(distance - 470.00) + parseFloat(0.03) + "%";
 }
+
 //Prepare for take-off
 function prepareForTaxi(){
     tower.classList.add("tower_taxi");
+    moveLinesTaxi(distance);
 }
 
 
