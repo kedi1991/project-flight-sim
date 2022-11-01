@@ -29,21 +29,42 @@ document.addEventListener("DOMContentLoaded", function(){
     var craft =  document.getElementById("craft");
     var tower = document.getElementById("tower");
 
+
+    // Audio values
+    var playedTaxi = false;
+    var playedPrepTaxi = false;
+
+
+    var prepare_taxi = document.getElementById("prepare_takeoff");
+    var takeoff = document.getElementById("takeoff");
+    var ambience = document.getElementById("ambience");
+    
+    function play_prepare_taxi() {
+        prepare_taxi.play();
+      }
+      function play_taxi() {
+        takeoff.play();
+      }
+      function play_ambience() {
+        ambience.play();
+      }
+
 document.addEventListener("keydown", function(e){
     /**rotate the plane for climb */
     if(e.key === "ArrowUp"){
         craft_rotation--;
         craft.style.rotate = craft_rotation + "deg";
-        //craft.classList.add("climb_class");
-    /**reduce thrust */    
+        play_ambience();
     }else if (e.key == "ArrowLeft"){
         deccelerate(gear);
         gear = gear - 1;
     //start the timer and take off--
-    }else if (e.key == "ArrowRight"){    
+    }else if (e.key == "ArrowRight" && !playedPrepTaxi){    
         
         //the clock /counter used to manipulate events
         if(time == 0){
+            play_prepare_taxi();
+            playedPrepTaxi = true;
         setInterval(function(){
             if (time <= 28){
                 moveLinesTaxi(distance)
@@ -51,6 +72,11 @@ document.addEventListener("keydown", function(e){
             }
             else{
                 readyForTaxi = true;
+                if(!playedTaxi){
+                    play_taxi();
+                }
+                playedTaxi = true;
+                
                 clearInterval();
                // moveLines(time);
             }
