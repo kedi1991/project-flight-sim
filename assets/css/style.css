@@ -100,12 +100,12 @@ footer{
     position: absolute;
     height: 100px;
     width: 5000px;
-    background: url("../assets/images/Img_02.png") repeat-x;
+    background: url("../images/Img_02.png") repeat-x;
     bottom: 0;
 }
 #tower{
     position: absolute;
-    background-image: url("../assets/images/control_tower.png");
+    background-image: url("../images/control_tower.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 40%;
@@ -122,7 +122,7 @@ footer{
 }
 #craft{
     position: absolute;
-    background-image: url("../assets/images/plane.gif");
+    background-image: url("../images/plane.gif");
     background-size: contain;
     background-repeat: no-repeat;
     height: 10%;
