@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", function(){
     var gear = 0;
 
     //speed checkPoints used to control animation speed
-    var speed0 = 20;
-    var speed1 = 10;
-    var speed2 = 5;
-     
+    
     var background = document.getElementById("background");
     var inst_time = document.getElementById("flighttime_val");
     var inst_velocity = document.getElementById("velocity_val");
     var marks = document.getElementsByClassName("middle_mark");
+
+    var exit_mountains = document.getElementById("exit_mountains");
+    var cloud_small = document.getElementsByClassName("cloud_small");
 
     var flight_screen = document.getElementById("flight-screen");
     var craft =  document.getElementById("craft");
@@ -76,10 +76,14 @@ document.addEventListener("keydown", function(e){
 
 document.addEventListener("keydown", function(e){
     if ((e.key == "ArrowRight") && readyForTaxi){
+        moveClouds();
         console.log(".....");
         setInterval(function(){
             moveLinesTaxi(distance);
             distance = distance + 0.03;
+
+//for the clouds
+
 
         }, 10);
         
@@ -88,7 +92,9 @@ document.addEventListener("keydown", function(e){
 
 //move environment in preparation to taxi
 function moveLinesTaxi(distance){
-    tower.style.right = parseFloat(distance) + parseFloat(0.03) + "%"; 
+
+    tower.style.right = parseFloat(distance) + parseFloat(0.03) + "%";
+
     marks[0].style.right = parseFloat(distance) + parseFloat(0.03) + "%"; 
     marks[1].style.right = parseFloat(distance - 10.00) + parseFloat(0.03) + "%";
     marks[2].style.right = parseFloat(distance - 20.00) + parseFloat(0.03) + "%";
@@ -137,81 +143,64 @@ function moveLinesTaxi(distance){
     marks[45].style.right = parseFloat(distance - 450.00) + parseFloat(0.03) + "%";
     marks[46].style.right = parseFloat(distance - 460.00) + parseFloat(0.03) + "%";
     marks[47].style.right = parseFloat(distance - 470.00) + parseFloat(0.03) + "%";
+    marks[48].style.right = parseFloat(distance - 480.00) + parseFloat(0.03) + "%";
+    marks[49].style.right = parseFloat(distance - 490.00) + parseFloat(0.03) + "%";
+    marks[50].style.right = parseFloat(distance - 500.00) + parseFloat(0.03) + "%";
+    marks[51].style.right = parseFloat(distance - 510.00) + parseFloat(0.03) + "%";
+    marks[52].style.right = parseFloat(distance - 520.00) + parseFloat(0.03) + "%";
+    marks[53].style.right = parseFloat(distance - 530.00) + parseFloat(0.03) + "%";
+    marks[54].style.right = parseFloat(distance - 540.00) + parseFloat(0.03) + "%";
+    marks[55].style.right = parseFloat(distance - 550.00) + parseFloat(0.03) + "%";
+    marks[56].style.right = parseFloat(distance - 560.00) + parseFloat(0.03) + "%";
+    marks[57].style.right = parseFloat(distance - 570.00) + parseFloat(0.03) + "%";
+    marks[58].style.right = parseFloat(distance - 580.00) + parseFloat(0.03) + "%";
+    marks[59].style.right = parseFloat(distance - 590.00) + parseFloat(0.03) + "%";
+    marks[60].style.right = parseFloat(distance - 600.00) + parseFloat(0.03) + "%";
+    marks[61].style.right = parseFloat(distance - 610.00) + parseFloat(0.03) + "%";
+    marks[62].style.right = parseFloat(distance - 620.00) + parseFloat(0.03) + "%";
+    marks[63].style.right = parseFloat(distance - 630.00) + parseFloat(0.03) + "%";
+    marks[64].style.right = parseFloat(distance - 640.00) + parseFloat(0.03) + "%";
+    marks[65].style.right = parseFloat(distance - 650.00) + parseFloat(0.03) + "%";
+    marks[66].style.right = parseFloat(distance - 660.00) + parseFloat(0.03) + "%";
+    marks[67].style.right = parseFloat(distance - 670.00) + parseFloat(0.03) + "%";
+    marks[68].style.right = parseFloat(distance - 680.00) + parseFloat(0.03) + "%";
+    marks[69].style.right = parseFloat(distance - 690.00) + parseFloat(0.03) + "%";
+    marks[70].style.right = parseFloat(distance - 700.00) + parseFloat(0.03) + "%";
+    marks[71].style.right = parseFloat(distance - 710.00) + parseFloat(0.03) + "%";
+    marks[72].style.right = parseFloat(distance - 720.00) + parseFloat(0.03) + "%";
+    marks[73].style.right = parseFloat(distance - 730.00) + parseFloat(0.03) + "%";
+    marks[74].style.right = parseFloat(distance - 740.00) + parseFloat(0.03) + "%";
+    marks[75].style.right = parseFloat(distance - 750.00) + parseFloat(0.03) + "%";
+    marks[76].style.right = parseFloat(distance - 760.00) + parseFloat(0.03) + "%";
+    marks[77].style.right = parseFloat(distance - 770.00) + parseFloat(0.03) + "%";
+    marks[78].style.right = parseFloat(distance - 780.00) + parseFloat(0.03) + "%";
+    marks[79].style.right = parseFloat(distance - 790.00) + parseFloat(0.03) + "%";
+    marks[80].style.right = parseFloat(distance - 800.00) + parseFloat(0.03) + "%";
+    marks[81].style.right = parseFloat(distance - 810.00) + parseFloat(0.03) + "%";
+    marks[82].style.right = parseFloat(distance - 820.00) + parseFloat(0.03) + "%";
+    marks[83].style.right = parseFloat(distance - 830.00) + parseFloat(0.03) + "%";
+    marks[84].style.right = parseFloat(distance - 840.00) + parseFloat(0.03) + "%";
+    marks[85].style.right = parseFloat(distance - 850.00) + parseFloat(0.03) + "%";
+    marks[86].style.right = parseFloat(distance - 860.00) + parseFloat(0.03) + "%";
+    marks[87].style.right = parseFloat(distance - 870.00) + parseFloat(0.03) + "%";
+
+    exit_mountains.style.right = parseFloat(distance - 1100.00) + parseFloat(0.03) + "%";
+
+  
+        background.style.right = parseFloat(distance - 1200.00) + parseFloat(0.03) + "%";
+    
 }
 
-//Prepare for take-off
-function prepareForTaxi(){
-    tower.classList.add("tower_taxi");
-    moveLinesTaxi(distance);
+function moveClouds(){
+    cloud_small[0].classList.add("cloud_small");
 }
-
-
 
 //move the background to show speed
 function full_thrust(){
    //move the runway lines
     
     setInterval(function()
-    {for(var i = 0; i< 1; i++)
-        {
-        
-
-       
-        inst_velocity.innerHTML = velocity;
-
-            if(time <= 10){
-                gear = 0;
-                background.classList.add("speed" + gear);
-                velocity = 10 + " mph";
-
-            }else if (time <= 20){
-                background.classList.remove("speed" + gear);
-                gear = 1;
-                background.classList.add("speed" + gear);
-                velocity = 40 + " mph";
-            }else if (time <= 30){
-                background.classList.remove("speed" + gear);
-                gear = 2;
-                background.classList.add("speed" + gear);
-                velocity = 70 + " mph";
-            }else if (time <=40){
-                background.classList.remove("speed" + gear);
-                gear =3;
-                background.classList.add("speed" + gear);
-                velocity = 75 + " mph";
-            }else if (time <=50){
-                background.classList.remove("speed" + gear);
-                gear =4;
-                background.classList.add("speed" + gear);
-                velocity = 98 + " mph";
-            }else if (time <= 60){
-                background.classList.remove("speed" + gear);
-                gear =5;
-                background.classList.add("speed" + gear);
-            }else if (time <=70){
-                background.classList.remove("speed" + gear);
-                gear=6;
-                background.classList.add("speed" + gear);
-                velocity = 118 + " mph";
-            }else if (time <=80){
-                background.classList.remove("speed" + gear);
-                gear=7;
-                background.classList.add("speed" + gear);
-                velocity = 138 + " mph";
-            }else if (time <=90){
-                background.classList.remove("speed" + gear);
-                gear=9;
-                background.classList.add("speed" + gear);
-                velocity = 159 + " mph";
-            }else if (time == 100){
-                /**takeoff 184 mph and land at 166mph  V1 speed is between 120 – 140 knots.*/
-                background.classList.remove("speed" + gear);
-                gear=10;
-                background.classList.add("speed" + gear);
-                velocity = 184 + " mph";
-            }
-        }
-        
+    {
     }, 1000);
         
   }

@@ -44,7 +44,15 @@ footer{
     bottom: 0;
     position: absolute;
 }
-
+#exit_mountains{
+    background-image: url("/assets/images/mountain_c.png");
+    background-repeat: repeat-x;
+    width: 200%;
+    height: 10%;
+    bottom: 0;
+    right: -800%;
+    position: absolute;
+}
 /* MIDDLE MARK DATA */
 .middle_mark{
     width: 2%;
@@ -98,10 +106,11 @@ footer{
 
 #background{
     position: absolute;
-    height: 100px;
-    width: 5000px;
-    background: url("../images/Img_02.png") repeat-x;
-    bottom: 0;
+    height: 15%;
+    width: 5%;
+    background-image: url("../images/Img_02.png");
+    background-size: cover;
+    bottom: 5%;
 }
 #tower{
     position: absolute;
@@ -130,66 +139,26 @@ footer{
     bottom: 4%;
     left: 20%;   
 }
+.cloud_small{
+    height: 50px;
+    width: 200px;
+    background-image: url("/assets//images/cloud_a.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: small_cloud_anim 5s linear infinite; 
+}
+@keyframes small_cloud_anim {
+    from {right:-20%}
+    to {right: 110%;}
+}
 @keyframes cruise {
-    0% {translate: 0px 1px}
-    50% {translate: 0px -1px}
+    0% {translate: 0px 2px}
+    50% {translate: 0px -2px}
     70% {translate: 0px 0px}
-    100%{translate: 0px 1px;}
+    100%{translate: 0px 2px;}
 }
 .cruise_class{
-    animation: cruise 1s linear infinite forwards;
+    animation: cruise 5s linear infinite forwards;
     animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-}
-
-@keyframes moveRight {
-   100% {transform: translateX(-1000px)}
-}
-
-@keyframes climb {
-    100% {translate: 150px -300px}
-}
-.climb_class{
-    animation: climb 10s linear forwards;
-}
-.descend_class{
-    animation: descend 10s linear forwards;
-}
-@keyframes descend {
-    100% {transform: translate(150px 300px)}
-}
-
-/**speed adjustment**/
-/*2s is fastested, slowest 100s*/
-.speed0{
-    animation: moveRight 60s linear infinite;
-}
-.speed1{
-    animation: moveRight 30s linear infinite;
-}
-.speed2{
-    animation: moveRight 15s linear  infinite;
-}
-.speed3{
-    animation: moveRight 7s linear infinite;
-}
-.speed4{
-    animation: moveRight 7s linear infinite;
-}
-.speed5{
-    animation: moveRight 8s linear infinite;
-}
-.speed6{
-    animation: moveRight 8s linear infinite;
-}
-.speed7{
-    animation: moveRight 7s linear infinite;
-}
-.speed8{
-    animation: moveRight 3s linear infinite;
-}
-.speed9{
-    animation: moveRight 2s linear infinite;
-}
-.speed10{
-    animation: moveRight 1s linear infinite;
 }
