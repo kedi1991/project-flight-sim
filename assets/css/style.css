@@ -4,6 +4,11 @@ body{
     margin: 0 auto;
 }
 
+/* Start of the instruments */
+
+
+/* End of the instruments section */
+
 #instruments{
     display: grid;
     grid-template-columns: 10% 10%;
@@ -17,7 +22,7 @@ input{
     font-size: xx-large;
 }
 header div{
-background-color: aqua;
+background-color: rgb(64, 65, 65);
 min-height: 5em;
 }
 #flight-screen{
@@ -27,12 +32,24 @@ min-height: 30em;
 margin: 10px;
 overflow: hidden;
 }
-#flight-score{
-    background-color: brown;
+#flight-dashboard{
+    display: grid;
+    background-image: url("/assets/images/imgs_dashboard/dashboard_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
     margin: 0 10px;
     min-height: 5em;
+    grid-template-columns: 25% 25% 25% 25%;
 }
-footer{
+.instruments{
+    padding: 1em;
+    margin: 1em;
+    background-image: url("/assets/images/imgs_dashboard/display_screen.png");
+    border-radius: 10px;
+    border: #2d2e2d 3px solid;
+}
+flight-dashboard{
     background-color: aqua;
     min-height: 5em;
 }
@@ -45,7 +62,8 @@ footer{
     position: absolute;
 }
 #exit_mountains{
-    background-image: url("/assets/images/mountain_c.png");
+    /* background-image: url("/assets/images/mountain_c.png"); */
+    background-color: bisque;
     background-repeat: repeat-x;
     width: 200%;
     height: 10%;
@@ -60,6 +78,7 @@ footer{
     background-color: azure;
     height: 5%;
     position: absolute;
+    right: 110%;
 }
 @keyframes speed_a {
     from {right:-5%;} to {right: 100%}
@@ -114,7 +133,8 @@ footer{
 }
 #tower{
     position: absolute;
-    background-image: url("../images/control_tower.png");
+    background-color: aquamarine;
+    /* background-image: url("../images/control_tower.png"); */
     background-size: contain;
     background-repeat: no-repeat;
     height: 40%;
@@ -131,7 +151,8 @@ footer{
 }
 #craft{
     position: absolute;
-    background-image: url("../images/plane.gif");
+    background-color: aliceblue;
+    /* background-image: url("../images/plane.gif"); */
     background-size: contain;
     background-repeat: no-repeat;
     height: 10%;
@@ -142,7 +163,8 @@ footer{
 .cloud_small{
     height: 50px;
     width: 200px;
-    background-image: url("../images/cloud_a.png");
+    background-color: rgb(51, 50, 49);
+    /* background-image: url("../images/cloud_a.png"); */
     background-size:contain;
     background-repeat: no-repeat;
     position: absolute;

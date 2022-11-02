@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedi's Flight Simulator</title>
+    <!--link to the stylesheets and javascript-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h2>---</h2>
+        </div>
+        <div>
+            <nav>
+                <div id="header_nav">
+                    <a href="index.html" class="active-nav">Home</a>
+                    <a href="pages/contact.html">Contact us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <div id="flight-screen">
+           <div id="instruments" class="inst-format">
+                <div id="flighttime">Time</div>
+                <div id="flighttime_val">0.0</div>
+                <div id="distance">Dist</div>
+                <div>0.0</div>
+                <div id="cruzaltitude">Cruise Alt</div>
+                <div>0.0</div>
+                <div id="airspeed">Air speed</div>
+                <div id="velocity_val">0.0</div>
+                <div id="groundspeed">Grd Speed</div>
+                <div>0.0</div>
+                <div id="landing gear">L gear</div>
+                <div>0.0</div>
+                <div id="communication">Comm</div>
+                <div>0.0</div>
+           </div>
+
+           <div class="cloud_small">
+           </div>
+           
+            <!--the backgound-->
+            <div id="background">
+            </div>
+            <div id="tower">
+            </div>
+           
+            <div id="runway">
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+                <div class="middle_mark"></div>
+
+            </div>
+            <div id="exit_mountains">
+
+            </div>
+            
+            
+            <div id="craft">
+            </div>
+        </div>
+
+    </section>
+    
+    <section>
+        <div id="flight-dashboard">
+           <div class="instruments"></div>
+           <div class="instruments"></div>
+           <div class="instruments"></div>
+           <div class="instruments"></div>
+
+        </div>
+    </section>
+    <section id="other">
+        <audio id="prepare_takeoff" src="assets/sounds/prepare_taxi.wav"></audio>
+        <audio id="takeoff" src="assets/sounds/taxi.wav"></audio>
+        <audio id="ambience" src="assets/sounds/ambience.mp3"></audio>
+    </section>
+
+
+    <!--link to javascript-->
+    <script src="./assets/js/script.js">
+
+    </script>
+</body>
+
+</html>

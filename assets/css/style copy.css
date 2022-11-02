@@ -44,7 +44,15 @@ footer{
     bottom: 0;
     position: absolute;
 }
-
+#exit_mountains{
+    background-image: url("/assets/images/mountain_c.png");
+    background-repeat: repeat-x;
+    width: 200%;
+    height: 10%;
+    bottom: 0;
+    right: -800%;
+    position: absolute;
+}
 /* MIDDLE MARK DATA */
 .middle_mark{
     width: 2%;
@@ -53,102 +61,104 @@ footer{
     height: 5%;
     position: absolute;
 }
-@keyframes middle_mark_anim_a {
-    from {right:-5%;}
-    to {right: 100%}
+@keyframes speed_a {
+    from {right:-5%;} to {right: 100%}
 }
-.middle_mark_anim_a{
-    animation: middle_mark_anim_a 2s infinite linear; 
+.speed_a{
+    animation: speed_a 20s infinite linear; 
 }
-@keyframes middle_mark_anim_b {
-    from {right:-20%;} to {right: 85%}
+/* start and pause the runway lines on start of taxi */
+@keyframes speed_a_taxi {
+    from {right:-5%;} to {right: 80%}
 }
-.middle_mark_anim_b{
-    animation: middle_mark_anim_b 2s infinite linear; 
+.speed_a_taxi{
+    animation: speed_a_taxi linear forwards 20s ; 
 }
-@keyframes middle_mark_anim_c {
-    from {right:-35%;} to {right: 70%}
+@keyframes speed_b_taxi {
+    from {right:-5%;} to {right: 60%}
 }
-.middle_mark_anim_c{
-    animation: middle_mark_anim_c 2s infinite linear; 
+.speed_b_taxi{
+    animation: speed_b_taxi linear forwards 15s ; 
 }
-@keyframes middle_mark_anim_d {
-    from {right:-50%;} to {right: 55%}
+@keyframes speed_c_taxi {
+    from {right:-5%;} to {right: 40%}
 }
-.middle_mark_anim_d{
-    animation: middle_mark_anim_d 2s infinite linear; 
+.speed_c_taxi{
+    animation: speed_c_taxi linear forwards 10s ; 
 }
-@keyframes middle_mark_anim_e {
-    from {right:-65%;} to {right: 40%}
+
+
+@keyframes speed_b {
+    from {right:-5%;} to {right: 100%}
 }
-.middle_mark_anim_e{
-    animation: middle_mark_anim_e 2s infinite linear; 
+.speed_b{
+    animation: speed_b 10s infinite linear; 
 }
+@keyframes speed_c {
+    from {right:-5%;} to {right: 100%}
+}
+.speed_c{
+    animation: speed_c 5s infinite linear; 
+}
+
 
 /* MIDDLE MARK DATA */
 
 #background{
     position: absolute;
-    height: 100px;
-    width: 5000px;
-    background: url("/assets/images/Img_02.png") repeat-x;
-    bottom: 0;
+    height: 15%;
+    width: 5%;
+    background-image: url("../images/Img_02.png");
+    background-size: cover;
+    bottom: 5%;
+}
+#tower{
+    position: absolute;
+    background-image: url("../images/control_tower.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40%;
+    width: 20%;
+    bottom: 6%;
+    right: -10%; 
+}
+@keyframes tower_taxi {
+    from {right:-10%;} to {right: 80%}
+}
+.tower_taxi{
+    animation: tower_taxi 20s forwards;
+    animation-timing-function: ease; 
 }
 #craft{
     position: absolute;
-    background-image: url("/assets/images/plane.gif");
+    background-image: url("../images/plane.gif");
     background-size: contain;
     background-repeat: no-repeat;
     height: 10%;
     width: 12%;
-    /* width: 12%;
-    height: 2px; */
-    bottom: 2%;
+    bottom: 4%;
     left: 20%;   
-    /* background-color: bisque;  */
 }
-@keyframes moveRight {
-   100% {transform: translateX(-1000px)}
+.cloud_small{
+    height: 50px;
+    width: 200px;
+    background-image: url("../images/cloud_a.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: small_cloud_anim 5s linear infinite; 
 }
-
-@keyframes climb {
-    100% {translate: 150px -300px}
+@keyframes small_cloud_anim {
+    from {right:-20%}
+    to {right: 110%;}
 }
-.climb_class{
-    animation: climb 10s linear forwards;
+@keyframes cruise {
+    0% {translate: 0px 2px}
+    50% {translate: 0px -2px}
+    70% {translate: 0px 0px}
+    100%{translate: 0px 2px;}
 }
-/**speed adjustment**/
-/*2s is fastested, slowest 100s*/
-.speed0{
-    animation: moveRight 60s linear infinite;
-}
-.speed1{
-    animation: moveRight 30s linear infinite;
-}
-.speed2{
-    animation: moveRight 15s linear  infinite;
-}
-.speed3{
-    animation: moveRight 7s linear infinite;
-}
-.speed4{
-    animation: moveRight 7s linear infinite;
-}
-.speed5{
-    animation: moveRight 8s linear infinite;
-}
-.speed6{
-    animation: moveRight 8s linear infinite;
-}
-.speed7{
-    animation: moveRight 7s linear infinite;
-}
-.speed8{
-    animation: moveRight 3s linear infinite;
-}
-.speed9{
-    animation: moveRight 2s linear infinite;
-}
-.speed10{
-    animation: moveRight 1s linear infinite;
+.cruise_class{
+    animation: cruise 5s linear infinite forwards;
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
 }
