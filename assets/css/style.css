@@ -50,6 +50,7 @@ overflow: hidden;
     padding: 1em;
     margin: 1em;
     background-image: url("/assets/images/imgs_dashboard/display_screen.png");
+    background-size: cover;
     border-radius: 10px;
     border: #2d2e2d 3px solid;
 }
