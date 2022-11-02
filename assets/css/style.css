@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@800&display=swap');
+
 body{
     background-color: antiquewhite;
     width: 90%;
@@ -10,6 +12,7 @@ body{
 /* End of the instruments section */
 
 #instruments{
+
     display: grid;
     grid-template-columns: 10% 10%;
     margin-left: 0.5em;
@@ -43,6 +46,7 @@ overflow: hidden;
     grid-template-columns: 25% 25% 25% 25%;
 }
 .instruments{
+    font-family: 'Turret Road', cursive;
     padding: 1em;
     margin: 1em;
     background-image: url("/assets/images/imgs_dashboard/display_screen.png");
