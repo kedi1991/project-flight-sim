@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@500&display=swap');
 
 body{
     background-color: antiquewhite;
@@ -30,7 +30,7 @@ overflow: hidden;
 }
 #flight-dashboard{
     display: grid;
-    background-image: url("/assets/images/imgs_dashboard/dashboard_background.jpg");
+    background-image: url("/assets/images/dashboard.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
@@ -39,9 +39,9 @@ overflow: hidden;
     grid-template-columns: 25% 25% 25% 25%;
 }
 .instruments{
-    /* font-family: 'Turret Road', cursive; */
+    font-family: 'Turret Road', cursive;
     margin: 1em;
-    background-image: url("/assets/images/imgs_dashboard/display_screen.png");
+    background-image: url("/assets/images/display.png");
     background-size: cover;
     border-radius: 10px;
     border: #2d2e2d 3px solid;
