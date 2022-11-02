@@ -142,7 +142,7 @@ footer{
 .cloud_small{
     height: 50px;
     width: 200px;
-    background-image: url("/assets//images/cloud_a.png");
+    background-image: url("../images/cloud_a.png");
     background-size:contain;
     background-repeat: no-repeat;
     position: absolute;
