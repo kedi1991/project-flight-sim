@@ -11,13 +11,6 @@ body{
 
 /* End of the instruments section */
 
-#instruments{
-
-    display: grid;
-    grid-template-columns: 10% 10%;
-    margin-left: 0.5em;
-    margin-top: 0.5em;
-}
 .inst-format{
     color: greenyellow;
 }
@@ -46,7 +39,7 @@ overflow: hidden;
     grid-template-columns: 25% 25% 25% 25%;
 }
 .instruments{
-    font-family: 'Turret Road', cursive;
+    /* font-family: 'Turret Road', cursive; */
     padding: 1em;
     margin: 1em;
     background-image: url("/assets/images/imgs_dashboard/display_screen.png");
