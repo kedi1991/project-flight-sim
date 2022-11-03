@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //plane engines on, OK from control tower
     var readyForTaxi = false;
     //angle of the plan nose
-    var craft_rotation = 0;
+    var craft_rotation = 0.00;
     var velocity = 0;
     var left = 0;
     //height of the plane above ground
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function(){
     //speed checkPoints used to control animation speed
     
     var background = document.getElementById("background");
-    var inst_time = document.getElementById("flighttime_val");
-    var inst_velocity = document.getElementById("velocity_val");
+  
+
     var marks = document.getElementsByClassName("middle_mark");
 
     var exit_mountains = document.getElementById("exit_mountains");
@@ -34,6 +34,11 @@ document.addEventListener("DOMContentLoaded", function(){
     var playedTaxi = false;
     var playedPrepTaxi = false;
 
+    //instruments
+    var instruments = document.getElementsByClassName("instruments");
+    var inst_time = instruments[0];
+    var inst_alt = instruments[2];
+    var inst_rotation = instruments[1];
 
     var prepare_taxi = document.getElementById("prepare_takeoff");
     var takeoff = document.getElementById("takeoff");
@@ -52,8 +57,9 @@ document.addEventListener("DOMContentLoaded", function(){
 document.addEventListener("keydown", function(e){
     /**rotate the plane for climb */
     if(e.key === "ArrowUp"){
-        craft_rotation--;
+        craft_rotation = craft_rotation - 0.1;
         craft.style.rotate = craft_rotation + "deg";
+        inst_rotation.innerHTML = craft_rotation + " deg";
         play_ambience();
     }else if (e.key == "ArrowLeft"){
         deccelerate(gear);
@@ -84,6 +90,11 @@ document.addEventListener("keydown", function(e){
         setInterval(function(){
             time++;
             inst_time.innerHTML = time + ".0 sec";
+
+            if (time == 240){
+                alert("start to descend!!!");
+            }
+
         }, 1000);
     }
         full_thrust();
@@ -91,8 +102,10 @@ document.addEventListener("keydown", function(e){
     }
     /**rotate the plane for cruise or landing */
     else if (e.key == "ArrowDown"){
-        craft_rotation++;
+        craft_rotation = craft_rotation + 0.1;
         craft.style.rotate = craft_rotation + "deg";
+        inst_rotation.innerHTML = craft_rotation + " deg";
+
         //craft.classList.add("descend_class");
 
     }else{
@@ -263,6 +276,8 @@ setInterval(function(){
 
     }
     else{
+        //display the altitude on instrument
+        inst_alt.innerHTML = altitude;
         //manipulate the descend and ascend (valid value -15 to 5)
         if ((craft_rotation >= -16) && (craft_rotation <= -12)){
             altitude = altitude + 0.05;

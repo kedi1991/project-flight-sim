@@ -6,14 +6,6 @@ body{
     margin: 0 auto;
 }
 
-/* Start of the instruments */
-
-
-/* End of the instruments section */
-
-.inst-format{
-    color: greenyellow;
-}
 input{
     font-size: xx-large;
 }
@@ -44,6 +36,10 @@ overflow: hidden;
     background-image: url("/assets/images/display.png");
     background-size: cover;
     border-radius: 10px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    font-weight: 800;
     border: #2d2e2d 3px solid;
 }
 flight-dashboard{
@@ -59,8 +55,8 @@ flight-dashboard{
     position: absolute;
 }
 #exit_mountains{
-    /* background-image: url("/assets/images/mountain_c.png"); */
-    background-color: bisque;
+    background-image: url("/assets/images/mountain_c.png");
+    /* background-color: bisque; */
     background-repeat: repeat-x;
     width: 200%;
     height: 10%;
@@ -130,8 +126,8 @@ flight-dashboard{
 }
 #tower{
     position: absolute;
-    background-color: aquamarine;
-    /* background-image: url("../images/control_tower.png"); */
+    /* background-color: aquamarine; */
+    background-image: url("../images/control_tower.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 40%;
@@ -148,8 +144,8 @@ flight-dashboard{
 }
 #craft{
     position: absolute;
-    background-color: aliceblue;
-    /* background-image: url("../images/plane.gif"); */
+    /* background-color: aliceblue; */
+    background-image: url("../images/plane.gif");
     background-size: contain;
     background-repeat: no-repeat;
     height: 10%;
@@ -160,8 +156,8 @@ flight-dashboard{
 .cloud_small{
     height: 50px;
     width: 200px;
-    background-color: rgb(51, 50, 49);
-    /* background-image: url("../images/cloud_a.png"); */
+    /* background-color: rgb(51, 50, 49); */
+    background-image: url("../images/cloud_a.png");
     background-size:contain;
     background-repeat: no-repeat;
     position: absolute;
