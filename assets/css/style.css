@@ -222,6 +222,28 @@ flight-dashboard{
     from {right:-20%}
     to {right: 110%;}
 }
+@keyframes small_cloud_anim {
+    from {right:-20%}
+    to {right: 110%;}
+}
+/* white cloud */
+#white-cloud{
+    right: -50%;
+    height: 50%;
+    width: 500px;
+    background-image: url("../images/white-clouds.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+.white_cloud_animation{
+    animation: white_cloud_anim 5s linear infinite; 
+}
+@keyframes white_cloud_anim {
+    from {right:-50%}
+    to {right: 110%;}
+}
+
 @keyframes cruise {
     0% {translate: 0px 2px}
     50% {translate: 0px -2px}

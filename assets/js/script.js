@@ -1,5 +1,6 @@
 /*check that evrything is loaded before the game starts*/
 document.addEventListener("DOMContentLoaded", function(){
+    
     //the clock value. Used to synchronise all events
     var time = 0;
     //distance moved by the plane
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     var exit_mountains = document.getElementById("exit_mountains");
     var cloud_small = document.getElementById("cloud_small");
+    var white_cloud = document.getElementById("white-cloud");
 
     var flight_screen = document.getElementById("flight-screen");
     var craft =  document.getElementById("craft");
@@ -71,6 +73,7 @@ document.addEventListener("keydown", function(e){
         craft.style.rotate = craft_rotation + "deg";
         inst_rotation.innerHTML = craft_rotation + " deg";
         play_ambience();
+        moveClouds();
     }else if (e.key == "ArrowLeft"){
            acceleration = acceleration + 10;
            movtUnit = movtUnit - 0.001;
@@ -133,7 +136,7 @@ document.addEventListener("keydown", function(e){
 
 document.addEventListener("keydown", function(e){
     if ((e.key == "ArrowRight") && readyForTaxi){
-        moveClouds();       // acceleration = acceleration - 10;
+              // acceleration = acceleration - 10;
         console.log(".....");
         forwardInterval = setInterval(function(){
             moveLinesTaxi(distance);
@@ -161,7 +164,9 @@ function moveLinesTaxi(distance){
 
 function moveClouds(){
    // cloud_small.classList.add("cloud_small");
-   cloud_small.classList.add("cloud_small_animation");
+   //cloud_small.classList.add("cloud_small_animation");
+   white_cloud.classList.add("white_cloud_animation");
+   //white_cloud.cla
 }
 
 /***
