@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var marks = document.getElementsByClassName("middle_mark");
 
     var exit_mountains = document.getElementById("exit_mountains");
-    var cloud_small = document.getElementsByClassName("cloud_small");
+    var cloud_small = document.getElementById("cloud_small");
 
     var flight_screen = document.getElementById("flight-screen");
     var craft =  document.getElementById("craft");
@@ -75,7 +75,7 @@ document.addEventListener("keydown", function(e){
            acceleration = acceleration + 10;
            movtUnit = movtUnit - 0.001;
            if (movtUnit <= 0){
-            movtUnit = 0;
+            movtUnit = 0.00;
             playedPrepTaxi = false;
            }
            
@@ -133,8 +133,7 @@ document.addEventListener("keydown", function(e){
 
 document.addEventListener("keydown", function(e){
     if ((e.key == "ArrowRight") && readyForTaxi){
-        moveClouds();
-       // acceleration = acceleration - 10;
+        moveClouds();       // acceleration = acceleration - 10;
         console.log(".....");
         forwardInterval = setInterval(function(){
             moveLinesTaxi(distance);
@@ -161,7 +160,8 @@ function moveLinesTaxi(distance){
 }
 
 function moveClouds(){
-    cloud_small[0].classList.add("cloud_small");
+   // cloud_small.classList.add("cloud_small");
+   cloud_small.classList.add("cloud_small_animation");
 }
 
 /***
