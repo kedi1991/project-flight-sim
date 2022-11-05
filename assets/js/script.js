@@ -12,8 +12,9 @@ document.addEventListener("DOMContentLoaded", function(){
     var left = 0;
     //height of the plane above ground
     var altitude = 4.000;
-    //speed of the plane
-    var gear = 0;
+    
+    //speed of the plane, this is equivalent to the time interval
+    var acceleration = 10;
 
     //speed checkPoints used to control animation speed
     
@@ -38,20 +39,29 @@ document.addEventListener("DOMContentLoaded", function(){
     var instruments = document.getElementsByClassName("instruments");
     var inst_time = instruments[0];
     var inst_alt = instruments[2];
+    var inst_dist = instruments[3];
     var inst_rotation = instruments[1];
 
     var prepare_taxi = document.getElementById("prepare_takeoff");
     var takeoff = document.getElementById("takeoff");
     var ambience = document.getElementById("ambience");
+
+    var movtUnit = 0.03;
+    var forwardInterval;
+    var reverseInterval;
+
+    var test1;
+    var test2;
+    var reducedSpeed;
     
     function play_prepare_taxi() {
-        prepare_taxi.play();
+        //prepare_taxi.play();
       }
       function play_taxi() {
-        takeoff.play();
+       // takeoff.play();
       }
       function play_ambience() {
-        ambience.play();
+       // ambience.play();
       }
 
 document.addEventListener("keydown", function(e){
@@ -62,16 +72,27 @@ document.addEventListener("keydown", function(e){
         inst_rotation.innerHTML = craft_rotation + " deg";
         play_ambience();
     }else if (e.key == "ArrowLeft"){
-        deccelerate(gear);
-        gear = gear - 1;
-    //start the timer and take off--
+           acceleration = acceleration + 10;
+           movtUnit = movtUnit - 0.001;
+           if (movtUnit <= 0){
+            movtUnit = 0;
+            playedPrepTaxi = false;
+           }
+           
+           reverseInterval = setInterval(function(){
+            
+            distance = distance + movtUnit;
+            moveLinesTaxi(distance);
+        }, 10);
+    
     }else if (e.key == "ArrowRight" && !playedPrepTaxi){    
-        
+       
         //the clock /counter used to manipulate events
         if(time == 0){
+            
             play_prepare_taxi();
             playedPrepTaxi = true;
-        setInterval(function(){
+            forwardInterval = setInterval(function(){
             if (time <= 28){
                 moveLinesTaxi(distance)
                 distance = distance + 0.03;
@@ -83,8 +104,6 @@ document.addEventListener("keydown", function(e){
                 }
                 playedTaxi = true;
                 
-                clearInterval();
-               // moveLines(time);
             }
         }, 10);
         setInterval(function(){
@@ -97,7 +116,6 @@ document.addEventListener("keydown", function(e){
 
         }, 1000);
     }
-        full_thrust();
        
     }
     /**rotate the plane for cruise or landing */
@@ -116,144 +134,35 @@ document.addEventListener("keydown", function(e){
 document.addEventListener("keydown", function(e){
     if ((e.key == "ArrowRight") && readyForTaxi){
         moveClouds();
+       // acceleration = acceleration - 10;
         console.log(".....");
-        setInterval(function(){
+        forwardInterval = setInterval(function(){
             moveLinesTaxi(distance);
-            distance = distance + 0.03;
-
-//for the clouds
-
-
+            distance = distance + movtUnit;
         }, 10);
+        inst_dist.innerHTML = distance;
         
     }
 });
 
-//move environment in preparation to taxi
+//move the craft forward
 function moveLinesTaxi(distance){
+    inst_dist.innerHTML = distance;
+    tower.style.right = parseFloat(distance)+ "%";
 
-    tower.style.right = parseFloat(distance) + parseFloat(0.03) + "%";
+    //create 88 middle lines on middle of the runway
+    for(var x = 0; x < 88; x++){
+        marks[x].style.right = parseFloat(distance - (x * 10.00)) + "%";
+    }
 
-    marks[0].style.right = parseFloat(distance) + parseFloat(0.03) + "%"; 
-    marks[1].style.right = parseFloat(distance - 10.00) + parseFloat(0.03) + "%";
-    marks[2].style.right = parseFloat(distance - 20.00) + parseFloat(0.03) + "%";
-    marks[3].style.right = parseFloat(distance - 30.00) + parseFloat(0.03) + "%";
-    marks[4].style.right = parseFloat(distance - 40.00) + parseFloat(0.03) + "%";
-    marks[5].style.right = parseFloat(distance - 50.00) + parseFloat(0.03) + "%";
-    marks[6].style.right = parseFloat(distance - 60.00) + parseFloat(0.03) + "%";
-    marks[7].style.right = parseFloat(distance - 70.00) + parseFloat(0.03) + "%";
-    marks[8].style.right = parseFloat(distance - 80.00) + parseFloat(0.03) + "%";
-    marks[9].style.right = parseFloat(distance - 90.00) + parseFloat(0.03) + "%";
-    marks[10].style.right = parseFloat(distance - 100.00) + parseFloat(0.03) + "%";
-    marks[11].style.right = parseFloat(distance - 110.00) + parseFloat(0.03) + "%";
-    marks[12].style.right = parseFloat(distance - 120.00) + parseFloat(0.03) + "%"; 
-    marks[13].style.right = parseFloat(distance - 130.00) + parseFloat(0.03) + "%";
-    marks[14].style.right = parseFloat(distance - 140.00) + parseFloat(0.03) + "%";
-    marks[15].style.right = parseFloat(distance - 150.00) + parseFloat(0.03) + "%";
-    marks[16].style.right = parseFloat(distance - 160.00) + parseFloat(0.03) + "%";
-    marks[17].style.right = parseFloat(distance - 170.00) + parseFloat(0.03) + "%";
-    marks[18].style.right = parseFloat(distance - 180.00) + parseFloat(0.03) + "%";
-    marks[19].style.right = parseFloat(distance - 190.00) + parseFloat(0.03) + "%";
-    marks[20].style.right = parseFloat(distance - 200.00) + parseFloat(0.03) + "%";
-    marks[21].style.right = parseFloat(distance - 210.00) + parseFloat(0.03) + "%";
-    marks[22].style.right = parseFloat(distance - 220.00) + parseFloat(0.03) + "%";
-    marks[23].style.right = parseFloat(distance - 230.00) + parseFloat(0.03) + "%";
-    marks[24].style.right = parseFloat(distance - 240.00) + parseFloat(0.03) + "%"; 
-    marks[25].style.right = parseFloat(distance - 250.00) + parseFloat(0.03) + "%";
-    marks[26].style.right = parseFloat(distance - 260.00) + parseFloat(0.03) + "%";
-    marks[27].style.right = parseFloat(distance - 270.00) + parseFloat(0.03) + "%";
-    marks[28].style.right = parseFloat(distance - 280.00) + parseFloat(0.03) + "%";
-    marks[29].style.right = parseFloat(distance - 290.00) + parseFloat(0.03) + "%";
-    marks[30].style.right = parseFloat(distance - 300.00) + parseFloat(0.03) + "%";
-    marks[31].style.right = parseFloat(distance - 310.00) + parseFloat(0.03) + "%";
-    marks[32].style.right = parseFloat(distance - 320.00) + parseFloat(0.03) + "%";
-    marks[33].style.right = parseFloat(distance - 330.00) + parseFloat(0.03) + "%";
-    marks[34].style.right = parseFloat(distance - 340.00) + parseFloat(0.03) + "%";
-    marks[35].style.right = parseFloat(distance - 350.00) + parseFloat(0.03) + "%";
-    marks[36].style.right = parseFloat(distance - 360.00) + parseFloat(0.03) + "%"; 
-    marks[37].style.right = parseFloat(distance - 370.00) + parseFloat(0.03) + "%";
-    marks[38].style.right = parseFloat(distance - 380.00) + parseFloat(0.03) + "%";
-    marks[39].style.right = parseFloat(distance - 390.00) + parseFloat(0.03) + "%";
-    marks[40].style.right = parseFloat(distance - 400.00) + parseFloat(0.03) + "%";
-    marks[41].style.right = parseFloat(distance - 410.00) + parseFloat(0.03) + "%";
-    marks[42].style.right = parseFloat(distance - 420.00) + parseFloat(0.03) + "%";
-    marks[43].style.right = parseFloat(distance - 430.00) + parseFloat(0.03) + "%";
-    marks[44].style.right = parseFloat(distance - 440.00) + parseFloat(0.03) + "%";
-    marks[45].style.right = parseFloat(distance - 450.00) + parseFloat(0.03) + "%";
-    marks[46].style.right = parseFloat(distance - 460.00) + parseFloat(0.03) + "%";
-    marks[47].style.right = parseFloat(distance - 470.00) + parseFloat(0.03) + "%";
-    marks[48].style.right = parseFloat(distance - 480.00) + parseFloat(0.03) + "%";
-    marks[49].style.right = parseFloat(distance - 490.00) + parseFloat(0.03) + "%";
-    marks[50].style.right = parseFloat(distance - 500.00) + parseFloat(0.03) + "%";
-    marks[51].style.right = parseFloat(distance - 510.00) + parseFloat(0.03) + "%";
-    marks[52].style.right = parseFloat(distance - 520.00) + parseFloat(0.03) + "%";
-    marks[53].style.right = parseFloat(distance - 530.00) + parseFloat(0.03) + "%";
-    marks[54].style.right = parseFloat(distance - 540.00) + parseFloat(0.03) + "%";
-    marks[55].style.right = parseFloat(distance - 550.00) + parseFloat(0.03) + "%";
-    marks[56].style.right = parseFloat(distance - 560.00) + parseFloat(0.03) + "%";
-    marks[57].style.right = parseFloat(distance - 570.00) + parseFloat(0.03) + "%";
-    marks[58].style.right = parseFloat(distance - 580.00) + parseFloat(0.03) + "%";
-    marks[59].style.right = parseFloat(distance - 590.00) + parseFloat(0.03) + "%";
-    marks[60].style.right = parseFloat(distance - 600.00) + parseFloat(0.03) + "%";
-    marks[61].style.right = parseFloat(distance - 610.00) + parseFloat(0.03) + "%";
-    marks[62].style.right = parseFloat(distance - 620.00) + parseFloat(0.03) + "%";
-    marks[63].style.right = parseFloat(distance - 630.00) + parseFloat(0.03) + "%";
-    marks[64].style.right = parseFloat(distance - 640.00) + parseFloat(0.03) + "%";
-    marks[65].style.right = parseFloat(distance - 650.00) + parseFloat(0.03) + "%";
-    marks[66].style.right = parseFloat(distance - 660.00) + parseFloat(0.03) + "%";
-    marks[67].style.right = parseFloat(distance - 670.00) + parseFloat(0.03) + "%";
-    marks[68].style.right = parseFloat(distance - 680.00) + parseFloat(0.03) + "%";
-    marks[69].style.right = parseFloat(distance - 690.00) + parseFloat(0.03) + "%";
-    marks[70].style.right = parseFloat(distance - 700.00) + parseFloat(0.03) + "%";
-    marks[71].style.right = parseFloat(distance - 710.00) + parseFloat(0.03) + "%";
-    marks[72].style.right = parseFloat(distance - 720.00) + parseFloat(0.03) + "%";
-    marks[73].style.right = parseFloat(distance - 730.00) + parseFloat(0.03) + "%";
-    marks[74].style.right = parseFloat(distance - 740.00) + parseFloat(0.03) + "%";
-    marks[75].style.right = parseFloat(distance - 750.00) + parseFloat(0.03) + "%";
-    marks[76].style.right = parseFloat(distance - 760.00) + parseFloat(0.03) + "%";
-    marks[77].style.right = parseFloat(distance - 770.00) + parseFloat(0.03) + "%";
-    marks[78].style.right = parseFloat(distance - 780.00) + parseFloat(0.03) + "%";
-    marks[79].style.right = parseFloat(distance - 790.00) + parseFloat(0.03) + "%";
-    marks[80].style.right = parseFloat(distance - 800.00) + parseFloat(0.03) + "%";
-    marks[81].style.right = parseFloat(distance - 810.00) + parseFloat(0.03) + "%";
-    marks[82].style.right = parseFloat(distance - 820.00) + parseFloat(0.03) + "%";
-    marks[83].style.right = parseFloat(distance - 830.00) + parseFloat(0.03) + "%";
-    marks[84].style.right = parseFloat(distance - 840.00) + parseFloat(0.03) + "%";
-    marks[85].style.right = parseFloat(distance - 850.00) + parseFloat(0.03) + "%";
-    marks[86].style.right = parseFloat(distance - 860.00) + parseFloat(0.03) + "%";
-    marks[87].style.right = parseFloat(distance - 870.00) + parseFloat(0.03) + "%";
-
-    exit_mountains.style.right = parseFloat(distance - 1100.00) + parseFloat(0.03) + "%";
-
-  
-        background.style.right = parseFloat(distance - 1200.00) + parseFloat(0.03) + "%";
+    exit_mountains.style.right = parseFloat(distance - 1100.00) + "%";
+    background.style.right = parseFloat(distance - 1200.00) + "%";
     
 }
 
 function moveClouds(){
     cloud_small[0].classList.add("cloud_small");
 }
-
-//move the background to show speed
-function full_thrust(){
-   //move the runway lines
-    
-    setInterval(function()
-    {
-    }, 1000);
-        
-  }
-
-  //to cruise altitute
-function deccelerate(gear){
-        background.classList.remove("speed" + gear);
-        background.classList.add("speed" + (gear - 1));
-        console.log("gear: " + gear);
-        gear = gear - 1;
-    }
-   
-
-//Altitude controller based on attack angle
 
 /***
  * For every 1 deg, increase
