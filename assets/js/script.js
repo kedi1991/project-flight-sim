@@ -97,7 +97,7 @@ document.addEventListener("keydown", function(e){
             playedPrepTaxi = true;
             forwardInterval = setInterval(function(){
             if (time <= 28){
-                moveLinesTaxi(distance)
+                moveLinesTaxi(distance);
                 distance = distance + 0.03;
             }
             else{
@@ -113,8 +113,10 @@ document.addEventListener("keydown", function(e){
             time++;
             inst_time.innerHTML = time + ".0 sec";
 
-            if (time == 240){
-                alert("start to descend!!!");
+            if (time == 100){
+               // create the lines for the destination runway
+                distance = -500.00;
+                moveLinesLand(distance);
             }
 
         }, 1000);
@@ -159,6 +161,21 @@ function moveLinesTaxi(distance){
 
     exit_mountains.style.right = parseFloat(distance - 1100.00) + "%";
     background.style.right = parseFloat(distance - 1200.00) + "%";
+    
+}
+
+//create lines for the landing
+function moveLinesLand(distance){
+    inst_dist.innerHTML = distance;
+    tower.style.right = parseFloat(distance)+ "%";
+
+    //create 88 middle lines on middle of the runway
+    for(var x = 0; x < 88; x++){
+        marks[x].style.right = parseFloat(distance - (x * 10.00)) + "%";
+    }
+
+   // exit_mountains.style.right = parseFloat(distance - 1100.00) + "%";
+   background.style.right = parseFloat(distance - 1200.00) + "%";
     
 }
 

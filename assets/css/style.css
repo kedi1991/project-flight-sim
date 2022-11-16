@@ -91,7 +91,7 @@ overflow: hidden;
     border-radius: 10px;
     display: flex;
     align-items: center; 
-    justify-content: center;
+    /* justify-content: center; */
     font-weight: 800;
     border: #2d2e2d 3px solid;
 }
