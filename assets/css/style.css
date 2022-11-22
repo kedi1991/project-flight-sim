@@ -126,6 +126,35 @@ flight-dashboard{
     position: absolute;
     right: 110%;
 }
+
+/* mobile controller */
+#mobile-controls{
+    position: absolute;
+    right: 3em;
+    bottom: 50%;
+    display: grid;
+    background-color: rgba(34, 28, 19, .5);
+    height: 4em;
+    width: 4em;
+    grid-template-columns: 33% 33% 33%;
+}
+#up{
+    background: url("../images/ctrl-up.png") no-repeat;
+    background-size: contain;
+}
+#down{
+    background: url("../images/ctrl-down.png") no-repeat;
+    background-size: contain;
+}
+#left{
+    background: url("../images/ctrl-left.png") no-repeat;
+    background-size: contain;
+}
+#right{
+    background: url("../images/ctrl-right.png") no-repeat;
+    background-size: contain;
+}
+
 @keyframes speed_a {
     from {right:-5%;} to {right: 100%}
 }
@@ -256,6 +285,10 @@ flight-dashboard{
 }
 
 /* media quesries for responsiveness */
+@media screen and (max-width:1800px) {
+    #tower{ height: 50%;}
+    #craft{height: 8%;}
+}
 @media screen and (max-width:1200px) {
     #tower{ height: 39%;}
     #craft{height: 8%;}
@@ -263,6 +296,7 @@ flight-dashboard{
 @media screen and (max-width:1000px) {
     #tower{ height: 37%;}
     #craft{height: 8%;}
+    header{display: none;}
 }
 @media screen and (max-width:980px) {
     #tower{ height: 34%;}
