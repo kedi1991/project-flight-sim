@@ -10,7 +10,7 @@ body{
 
 /* Index page styling */
 #feature-select{
-    background: url("/assets/images/instructions_background.jpg") no-repeat;
+    background: url("../assets/images/instructions_background.jpg") no-repeat;
     background-size: cover;
     height: 32em;
     width: 70%;
