@@ -254,3 +254,25 @@ flight-dashboard{
     animation: cruise 5s linear infinite forwards;
     animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
 }
+
+/* media quesries for responsiveness */
+@media screen and (max-width:900px) {
+    #tower{ height: 31%;}
+    #craft{height: 8%;}
+}
+@media screen and (max-width:800px) {
+    #tower{ height: 28%;}
+    #craft{height: 6%;}
+}
+@media screen and (max-width:700px) {
+    #tower{ height: 25%;}
+    #craft{height: 6%;}
+}
+@media screen and (max-width:600px) {
+        #tower{ height: 22%;}
+        #craft{height: 6%;}
+}
+@media screen and (max-width:480px) {
+    #tower{ height: 19%;}
+    #craft{height: 6%;}
+}

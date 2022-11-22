@@ -234,5 +234,15 @@ setInterval(function(){
     }
 }, 1);
 
+//set interval to chek the height
+setInterval(function(){
+    if (altitude < 5.000){
+        altitude = 5.000;
+        craft_rotation = 0;
+    }
+       
+
+}, 1);
+
 });
 
