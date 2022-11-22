@@ -71,17 +71,18 @@ document.addEventListener("DOMContentLoaded", function () {
         // ambience.play();
     }
 
-//mobile view listener
-right.addEventListener("click", function(){
-    if(!playedPrepTaxi){
-        accelerateBeforeTaxi();
-    }else{
-        accelerateDuringTaxi();
-    }
-});
-left.addEventListener("click", deccelerate);
-up.addEventListener("click", liftOff);
-down.addEventListener("click", descend);
+    //mobile view listener
+    right.addEventListener("mousedown", function () {
+        if (!playedPrepTaxi) {
+            accelerateBeforeTaxi();
+        } 
+        if (readyForTaxi){
+            accelerateDuringTaxi();
+        }
+    });
+    left.addEventListener("mousedown", deccelerate);
+    up.addEventListener("mousedown", liftOff);
+    down.addEventListener("mousedown", descend);
     //desktop view listener
     document.addEventListener("keydown", function (e) {
         if (e.key === "ArrowUp") {
@@ -90,9 +91,7 @@ down.addEventListener("click", descend);
             deccelerate();
         } else if (e.key == "ArrowRight" && !playedPrepTaxi) {
             accelerateBeforeTaxi();
-        }
-
-        else if (e.key == "ArrowDown") {
+        } else if (e.key == "ArrowDown") {
             descend();
         } else {
             console.log("Error: Unknown control ...");
@@ -101,19 +100,19 @@ down.addEventListener("click", descend);
 
     document.addEventListener("keydown", function (e) {
         if ((e.key == "ArrowRight") && readyForTaxi) {
-           accelerateDuringTaxi();
+            accelerateDuringTaxi();
         }
     });
 
     //accelerate rapidly during taxi
-    function accelerateDuringTaxi(){
+    function accelerateDuringTaxi() {
         console.log(".....");
         forwardInterval = setInterval(function () {
             moveLinesTaxi(distance);
             distance = distance + movtUnit;
         }, 10);
         inst_dist.innerHTML = distance;
-      }
+    }
 
     //lift off
     function liftOff() {
