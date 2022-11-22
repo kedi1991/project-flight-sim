@@ -134,8 +134,8 @@ flight-dashboard{
     bottom: 50%;
     display: grid;
     background-color: rgba(34, 28, 19, .5);
-    height: 4em;
-    width: 4em;
+    height: 9em;
+    width: 9em;
     grid-template-columns: 33% 33% 33%;
 }
 #up{
