@@ -10,7 +10,7 @@ body{
 
 /* Index page styling */
 #feature-select{
-    background: url("../assets/images/instructions_background.jpg") no-repeat;
+    background: url("../images/instructions_background.jpg") no-repeat;
     background-size: cover;
     height: 32em;
     width: 70%;
@@ -75,7 +75,7 @@ overflow: hidden;
 }
 #flight-dashboard{
     display: grid;
-    background-image: url("/assets/images/dashboard.jpg");
+    background-image: url("../images/dashboard.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
@@ -86,7 +86,7 @@ overflow: hidden;
 .instruments{
     font-family: 'Turret Road', cursive;
     margin: 1em;
-    background-image: url("/assets/images/display.png");
+    background-image: url("../images/display.png");
     background-size: cover;
     border-radius: 10px;
     display: flex;
@@ -108,7 +108,7 @@ flight-dashboard{
     position: absolute;
 }
 #exit_mountains{
-    background-image: url("/assets/images/mountain_c.png");
+    background-image: url("../images/mountain_c.png");
     /* background-color: bisque; */
     background-repeat: repeat-x;
     width: 200%;
