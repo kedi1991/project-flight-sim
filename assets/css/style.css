@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Fredoka+One&family=Kanit:ital,wght@0,500;1,500&display=swap');
 
 body{
-    background-color: antiquewhite;
+    background-color: antiquewhiFte;
     width: 90%;
     margin: 0 auto;
 }
@@ -183,7 +183,7 @@ flight-dashboard{
     background-image: url("../images/control_tower.png");
     background-size: contain;
     background-repeat: no-repeat;
-    height: 40%;
+    height: 42%;
     width: 20%;
     bottom: 6%;
     right: -10%; 
@@ -256,6 +256,18 @@ flight-dashboard{
 }
 
 /* media quesries for responsiveness */
+@media screen and (max-width:1200px) {
+    #tower{ height: 39%;}
+    #craft{height: 8%;}
+}
+@media screen and (max-width:1000px) {
+    #tower{ height: 37%;}
+    #craft{height: 8%;}
+}
+@media screen and (max-width:980px) {
+    #tower{ height: 34%;}
+    #craft{height: 8%;}
+}
 @media screen and (max-width:900px) {
     #tower{ height: 31%;}
     #craft{height: 8%;}
