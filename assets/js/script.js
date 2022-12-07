@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var inst_alt = instruments[2];
     var inst_dist = instruments[3];
     var inst_rotation = instruments[1];
+    var inst_velocity = instruments[4];
     
     var craft_status = "GROUNDED";
 
@@ -110,18 +111,19 @@ document.addEventListener("DOMContentLoaded", function () {
     //accelerate rapidly during taxi
     function accelerateDuringTaxi() {
         console.log(".....");
+        craft_status = "TAXI_STARTED";
         forwardInterval = setInterval(function () {
             moveLinesTaxi(distance);
             distance = distance + movtUnit;
         }, 10);
-        inst_dist.innerHTML = distance;
+        inst_dist.innerHTML = "Dist: " + Math.trunc(distance);
     }
 
     //lift off
     function liftOff() {
         craft_rotation = craft_rotation - 0.1;
         craft.style.rotate = craft_rotation + "deg";
-        inst_rotation.innerHTML = craft_rotation + " deg";
+        inst_rotation.innerHTML = "Rot: " + Math.trunc(craft_rotation)  + " deg";
         play_ambience();
         moveClouds();
     }
@@ -131,16 +133,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //the clock /counter used to manipulate events
         if (time == 0) {
-
+            inst_velocity.innerHTML = "Speed: " + movtUnit; 
             play_prepare_taxi();
             playedPrepTaxi = true;
             forwardInterval = setInterval(function () {
                 if (time <= 28) {
                     moveLinesTaxi(distance);
                     distance = distance + 0.03;
-                    craft_status = "GROUNDED";
                 } else {
-                    craft_status = "READY_GROUNDED";
+                    //Fail if the pilot takes extra 10 seconds without thrust
+                    if(time == 40 && craft_status === "GROUNDED"){
+                        location.href = "failed.html";
+                    }
                     readyForTaxi = true;
                     if (!playedTaxi) {
                         play_taxi();
@@ -151,7 +155,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 10);
             setInterval(function () {
                 time++;
-                inst_time.innerHTML = time + ".0 sec";
+                console.log(craft_status);
+                inst_time.innerHTML = "Time: " + time + ".0 s";
 
 
                 if (time == 90){
@@ -164,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     distance = -500.00;
                     moveLinesLand(distance);
                 }
-                if (120 >= time <= 140) {
+                if (time >= 120 && time <= 140) {
                     craft_status = "END_DESCEND";
                 }
                 //control major events for the game (takeoff, cruise, landing, and stop)
@@ -178,11 +183,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function descend() {
         craft_rotation = craft_rotation + 0.1;
         craft.style.rotate = craft_rotation + "deg";
-        inst_rotation.innerHTML = craft_rotation + " deg";
+        inst_rotation.innerHTML = "Rot: " + Math.trunc(craft_rotation)  + " deg";
 
     }
     //decrease the speed of the plane
     function deccelerate() {
+                    inst_velocity.innerHTML = "Speed: " + movtUnit; 
         acceleration = acceleration + 10;
         movtUnit = movtUnit - 0.001;
         if (movtUnit <= 0) {
@@ -199,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //move the craft forward
     function moveLinesTaxi(distance) {
-        inst_dist.innerHTML = distance;
+        inst_dist.innerHTML = "Dist: " + Math.trunc(distance);
         tower.style.right = parseFloat(distance) + "%";
 
         //create 88 middle lines on middle of the runway
@@ -214,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //create lines for the landing
     function moveLinesLand(distance) {
-        inst_dist.innerHTML = distance;
+        inst_dist.innerHTML = "Dist: " + Math.trunc(distance);
         tower.style.right = parseFloat(distance) + "%";
 
         //create 88 middle lines on middle of the runway
@@ -253,7 +259,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else {
             //display the altitude on instrument
-            inst_alt.innerHTML = altitude;
+
+            inst_alt.innerHTML = "Alt: " + Math.trunc(altitude);
             //manipulate the descend and ascend (valid value -15 to 5)
             if ((craft_rotation >= -16) && (craft_rotation <= -12)) {
                 altitude = altitude + 0.05;

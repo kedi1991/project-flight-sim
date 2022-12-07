@@ -81,7 +81,7 @@ overflow: hidden;
     border-radius: 5px;
     margin: 0 10px;
     min-height: 5em;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
 }
 .instruments{
     font-family: 'Turret Road', cursive;
