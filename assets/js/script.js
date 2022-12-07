@@ -36,13 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Audio values
     var playedTaxi = false;
     var playedPrepTaxi = false;
-
+    
     //instruments
     var instruments = document.getElementsByClassName("instruments");
     var inst_time = instruments[0];
     var inst_alt = instruments[2];
     var inst_dist = instruments[3];
     var inst_rotation = instruments[1];
+    
+    var craft_status = "GROUNDED";
+
 
     var prepare_taxi = document.getElementById("prepare_takeoff");
     var takeoff = document.getElementById("takeoff");
@@ -85,13 +88,13 @@ document.addEventListener("DOMContentLoaded", function () {
     down.addEventListener("mousedown", descend);
     //desktop view listener
     document.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowUp") {
+        if (e.key === "ArrowUp" && craft_status !== "GROUNDED") {
             liftOff();
-        } else if (e.key == "ArrowLeft") {
+        } else if (e.key == "ArrowLeft" && craft_status !== "GROUNDED") {
             deccelerate();
         } else if (e.key == "ArrowRight" && !playedPrepTaxi) {
             accelerateBeforeTaxi();
-        } else if (e.key == "ArrowDown") {
+        } else if (e.key == "ArrowDown" && craft_status !== "GROUNDED") {
             descend();
         } else {
             console.log("Error: Unknown control ...");
@@ -135,7 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (time <= 28) {
                     moveLinesTaxi(distance);
                     distance = distance + 0.03;
+                    craft_status = "GROUNDED";
                 } else {
+                    craft_status = "READY_GROUNDED";
                     readyForTaxi = true;
                     if (!playedTaxi) {
                         play_taxi();
@@ -148,11 +153,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 time++;
                 inst_time.innerHTML = time + ".0 sec";
 
-                if (time == 100) {
+
+                if (time == 90){
+                    craft_status = "START_DESCEND_HIGH";
+                }
+
+                if (time == 120) {
+                    craft_status = "START_DESCEND_LOW";
                     // create the lines for the destination runway
                     distance = -500.00;
                     moveLinesLand(distance);
                 }
+                if (120 >= time <= 140) {
+                    craft_status = "END_DESCEND";
+                }
+                //control major events for the game (takeoff, cruise, landing, and stop)
+
 
             }, 1000);
         }
