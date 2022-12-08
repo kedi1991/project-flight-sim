@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Audio values
     var playedTaxi = false;
     var playedPrepTaxi = false;
-    
+
     //instruments
     var instruments = document.getElementsByClassName("instruments");
     var inst_time = instruments[0];
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var inst_rotation = instruments[1];
     var inst_velocity = instruments[4];
     var mockVelocity = 0;
-    
+
     var craft_status = "GROUNDED";
 
 
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
     right.addEventListener("mousedown", function () {
         if (!playedPrepTaxi) {
             accelerateBeforeTaxi();
-        } 
-        if (readyForTaxi){
+        }
+        if (readyForTaxi) {
             accelerateDuringTaxi();
         }
     });
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
             accelerateBeforeTaxi();
         } else if (e.key == "ArrowDown" && craft_status !== "GROUNDED") {
             descend();
-        } 
+        }
     });
 
     document.addEventListener("keydown", function (e) {
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function liftOff() {
         craft_rotation = craft_rotation - 0.1;
         craft.style.rotate = craft_rotation + "deg";
-        inst_rotation.innerHTML = "Rot: " + Math.trunc(craft_rotation)  + " deg";
+        inst_rotation.innerHTML = "Rot: " + Math.trunc(craft_rotation) + " deg";
         play_ambience();
         moveClouds();
     }
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //the clock /counter used to manipulate events
         if (time == 0) {
-            inst_velocity.innerHTML = "Speed: " + movtUnit * 1000; 
+            inst_velocity.innerHTML = "Speed: " + movtUnit * 1000;
             play_prepare_taxi();
             playedPrepTaxi = true;
             forwardInterval = setInterval(function () {
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     distance = distance + 0.03;
                 } else {
                     //Fail if the pilot takes extra 10 seconds without thrust
-                    if(time == 40 && craft_status === "GROUNDED"){
+                    if (time == 40 && craft_status === "GROUNDED") {
                         location.href = "failed.html";
                     }
                     readyForTaxi = true;
@@ -153,11 +153,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 10);
             setInterval(function () {
                 time++;
-                console.log(craft_status);
                 inst_time.innerHTML = "Time: " + time + ".0 s";
 
-
-                if (time == 90){
+                if (time == 90) {
                     craft_status = "START_DESCEND_HIGH";
                 }
 
@@ -170,8 +168,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (time >= 120 && time <= 140) {
                     craft_status = "END_DESCEND";
                 }
-                //control major events for the game (takeoff, cruise, landing, and stop)
+                //check for successful landing
+                if (time >= 150 && distance >= 500 && distance < 550 && altitude < 6) {
+                    location.href = "passed.html";
+                }
+                if (time >= 180) {
+                    location.href = "failed.html";
+                }
 
+                if (craft_status == "END_DESCEND" && ((movtUnit * 1000) > 8)){
+                    location.href = "failed.html";
+                }
 
             }, 1000);
         }
@@ -181,14 +188,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function descend() {
         craft_rotation = craft_rotation + 0.1;
         craft.style.rotate = craft_rotation + "deg";
-        inst_rotation.innerHTML = "Rot: " + Math.trunc(craft_rotation)  + " deg";
+        inst_rotation.innerHTML = "Rot: " + Math.trunc(craft_rotation) + " deg";
 
     }
     //decrease the speed of the plane
     function deccelerate() {
         acceleration = acceleration + 10;
         movtUnit = movtUnit - 0.001;
-        inst_velocity.innerHTML = "Speed: " + movtUnit * 1000; 
+        inst_velocity.innerHTML = "Speed: " + movtUnit * 1000;
         if (movtUnit <= 0) {
             movtUnit = 0.00;
             playedPrepTaxi = false;
