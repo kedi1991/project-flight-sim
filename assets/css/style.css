@@ -345,6 +345,8 @@ flight-dashboard{
 @media screen and (max-width:900px) {
     #tower{ height: 31%;}
     #craft{height: 8%;}
+    #flight-dashboard{font-size: .7em;}
+    
 }
 @media screen and (max-width:800px) {
     #tower{ height: 28%;}
