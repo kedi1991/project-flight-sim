@@ -1,7 +1,7 @@
 **<h1>Kedi's flight Sim</h1>**
 ![mockup for desktop home page](./assets/images/project_design/mockup.png)
 
-Kedi's flight simulator is a simple online game that runs on any browser. It is intended to run on offline mode as a pass-time and replace the Not connected to internet error in browsers.
+Kedi's flight simulator is a simple online game that runs on any browser. It is intended to run on offline mode as a pass-time and replace the "Not connected to internet" error in browsers.
 
 Visit our [website](https://kedi1991.github.io/project-flight-sim/) and play!!!!
 <h2>1. Purpose of the project</h2>
@@ -15,13 +15,15 @@ Kedi's flight simulator is a simple online game that runs on any browser. It is 
 - Should have a simple user guide 
 - Should be able to give feed back to the user on their progress as they play.
 - A user is able to stop the plane after landing
-- A user can adjust palne angle to cause lift and drag
+- A user can adjust plane angle to cause lift and drag
+- The user should be abl to access all features of the game on desktop, tablet and mobile devices.
 
 <h2>3. Features</h2>
 
-- Display screen big black
+- Big black Display screen
 - keyboard controls for desktop view and Mobile controls for the mobile view
 - Display instruments (speed, time, altitude, distance, and rotation)
+- Clear dashboard with instrumentation
 
 ![image of plane on ground](./assets/images/project_design/image_prep_taxi.png)
 
@@ -143,7 +145,7 @@ Finally, run `git push` to push the changes to yout github repository.
 4. At the top just below the **GitHub Pages** heading, you will be notified of successful deployment as shown in the image. This may take about 60 seconds to reflect. Incase It takes longer, try refreshing the page.
 
 <h2>10. Known bugs</h2>
-1. Control using the long press on the mobile device controls does not produce the desired effect as that on the keyboard on dektop. This makes the reaction time of the craft so slow.
+1. Control using the long press on the mobile device controls does not produce the desired effect as that on the keyboard on desktop. This makes the reaction time of the craft so slow.
 
 <h2>11. credits</h2>
 
