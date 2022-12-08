@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var inst_dist = instruments[3];
     var inst_rotation = instruments[1];
     var inst_velocity = instruments[4];
+    var mockVelocity = 0;
     
     var craft_status = "GROUNDED";
 
@@ -97,9 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
             accelerateBeforeTaxi();
         } else if (e.key == "ArrowDown" && craft_status !== "GROUNDED") {
             descend();
-        } else {
-            console.log("Error: Unknown control ...");
-        }
+        } 
     });
 
     document.addEventListener("keydown", function (e) {
@@ -110,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //accelerate rapidly during taxi
     function accelerateDuringTaxi() {
-        console.log(".....");
         craft_status = "TAXI_STARTED";
         forwardInterval = setInterval(function () {
             moveLinesTaxi(distance);
@@ -133,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //the clock /counter used to manipulate events
         if (time == 0) {
-            inst_velocity.innerHTML = "Speed: " + movtUnit; 
+            inst_velocity.innerHTML = "Speed: " + movtUnit * 1000; 
             play_prepare_taxi();
             playedPrepTaxi = true;
             forwardInterval = setInterval(function () {
@@ -188,9 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     //decrease the speed of the plane
     function deccelerate() {
-                    inst_velocity.innerHTML = "Speed: " + movtUnit; 
         acceleration = acceleration + 10;
         movtUnit = movtUnit - 0.001;
+        inst_velocity.innerHTML = "Speed: " + movtUnit * 1000; 
         if (movtUnit <= 0) {
             movtUnit = 0.00;
             playedPrepTaxi = false;
@@ -246,13 +244,10 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     setInterval(function () {
         if (craft_rotation <= -16) {
-            console.log("plane stall warning");
             craft_rotation = -15;
         } else if (craft_rotation >= 6) {
-            console.log("plane stall warning");
             craft_rotation = 5
         } else if (craft_rotation == 0) {
-            console.log("plane cruise level");
             craft.classList.add("cruise_class");
             craft.classList.remove("climb_class");
             craft.classList.remove("descend_class");

@@ -40,7 +40,21 @@ footer{
     font-size: xxx-large;
 }
 
+#passed{
+    font-family: 'Fredoka One', cursive;
+    font-size: 2em;
+    color: green;
+    font-weight: bolder;
+    text-align: center;
+}
 
+#failed{
+    font-family: 'Fredoka One', cursive;
+    font-size: 2em;
+    color: rgb(255, 30, 0);
+    font-weight: bolder;
+    text-align: center;
+}
 
 input{
     font-size: xx-large;
@@ -60,12 +74,24 @@ header h1{
     padding-right: 1em;
     text-align: right;
 }
+#restart-link{
+    padding-right: 1em;
+    text-align: left;
+}
 
 #quit-link a{
+    font-family: 'Fredoka One', cursive;
     color: rgb(51, 5, 5);
     text-decoration: none;
     font-size: 2em;
 }
+#restart-link a{
+    font-family: 'Fredoka One', cursive;
+    color: rgb(34, 9, 170);
+    text-decoration: none;
+    font-size: 2em;
+}
+
 #flight-screen{
     position: relative;
 background-color: black;
