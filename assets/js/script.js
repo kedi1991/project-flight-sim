@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var readyForTaxi = false;
     //angle of the plan nose
     var craft_rotation = 0.00;
-    var velocity = 0;
     var left = 0;
     //height of the plane above ground
     var altitude = 4.000;
@@ -18,20 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var acceleration = 10;
 
     //speed checkPoints used to control animation speed
-
     var background = document.getElementById("background");
-
-
     var marks = document.getElementsByClassName("middle_mark");
-
     var exit_mountains = document.getElementById("exit_mountains");
-    var cloud_small = document.getElementById("cloud_small");
     var white_cloud = document.getElementById("white-cloud");
-
-    var flight_screen = document.getElementById("flight-screen");
     var craft = document.getElementById("craft");
     var tower = document.getElementById("tower");
-
 
     // Audio values
     var playedTaxi = false;
@@ -44,18 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var inst_dist = instruments[3];
     var inst_rotation = instruments[1];
     var inst_velocity = instruments[4];
-    var mockVelocity = 0;
-
     var craft_status = "GROUNDED";
-
-
     var prepare_taxi = document.getElementById("prepare_takeoff");
     var takeoff = document.getElementById("takeoff");
     var ambience = document.getElementById("ambience");
 
     var movtUnit = 0.03;
-    var forwardInterval;
-    var reverseInterval;
 
     //Button for mobile view
     var left = document.getElementById("left");
@@ -63,19 +48,15 @@ document.addEventListener("DOMContentLoaded", function () {
     var up = document.getElementById("up");
     var down = document.getElementById("down");
 
-
     function play_prepare_taxi() {
-        //prepare_taxi.play();
+        prepare_taxi.play();
     }
-
     function play_taxi() {
-        // takeoff.play();
+        takeoff.play();
     }
-
     function play_ambience() {
-        // ambience.play();
+        ambience.play();
     }
-
     //mobile view listener
     right.addEventListener("mousedown", function () {
         if (!playedPrepTaxi) {
@@ -100,13 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
             descend();
         }
     });
-
     document.addEventListener("keydown", function (e) {
         if ((e.key == "ArrowRight") && readyForTaxi) {
             accelerateDuringTaxi();
         }
     });
-
     //accelerate rapidly during taxi
     function accelerateDuringTaxi() {
         craft_status = "TAXI_STARTED";
@@ -116,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 10);
         inst_dist.innerHTML = "Dist: " + Math.trunc(distance);
     }
-
     //lift off
     function liftOff() {
         craft_rotation = craft_rotation - 0.1;
@@ -125,10 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
         play_ambience();
         moveClouds();
     }
-
     //Prepare for taxi
     function accelerateBeforeTaxi() {
-
         //the clock /counter used to manipulate events
         if (time == 0) {
             inst_velocity.innerHTML = "Speed: " + movtUnit * 1000;
@@ -148,17 +124,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         play_taxi();
                     }
                     playedTaxi = true;
-
                 }
             }, 10);
             setInterval(function () {
                 time++;
                 inst_time.innerHTML = "Time: " + time + ".0 s";
-
                 if (time == 90) {
                     craft_status = "START_DESCEND_HIGH";
                 }
-
                 if (time == 120) {
                     craft_status = "START_DESCEND_LOW";
                     // create the lines for the destination runway
@@ -169,27 +142,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     craft_status = "END_DESCEND";
                 }
                 //check for successful landing
-                if (time >= 150 && distance >= 500 && distance < 550 && altitude < 6) {
+                if (time >= 140 && distance >= 500 && altitude < 6) {
                     location.href = "passed.html";
                 }
-                if (time >= 180) {
+                if (time >= 170) {
                     location.href = "failed.html";
                 }
-
-                if (craft_status == "END_DESCEND" && ((movtUnit * 1000) > 8)){
+                if (craft_status == "END_DESCEND" && ((movtUnit * 1000) > 15)) {
                     location.href = "failed.html";
                 }
-
             }, 1000);
         }
     }
-
     //descend the plane
     function descend() {
         craft_rotation = craft_rotation + 0.1;
         craft.style.rotate = craft_rotation + "deg";
         inst_rotation.innerHTML = "Rot: " + Math.trunc(craft_rotation) + " deg";
-
     }
     //decrease the speed of the plane
     function deccelerate() {
@@ -200,29 +169,22 @@ document.addEventListener("DOMContentLoaded", function () {
             movtUnit = 0.00;
             playedPrepTaxi = false;
         }
-
-        reverseInterval = setInterval(function () {
-
+     reverseInterval = setInterval(function () {
             distance = distance + movtUnit;
             moveLinesTaxi(distance);
         }, 10);
     }
-
     //move the craft forward
     function moveLinesTaxi(distance) {
         inst_dist.innerHTML = "Dist: " + Math.trunc(distance);
         tower.style.right = parseFloat(distance) + "%";
-
         //create 88 middle lines on middle of the runway
         for (var x = 0; x < 88; x++) {
             marks[x].style.right = parseFloat(distance - (x * 10.00)) + "%";
         }
-
         exit_mountains.style.right = parseFloat(distance - 1100.00) + "%";
         background.style.right = parseFloat(distance - 1200.00) + "%";
-
     }
-
     //create lines for the landing
     function moveLinesLand(distance) {
         inst_dist.innerHTML = "Dist: " + Math.trunc(distance);
@@ -233,22 +195,14 @@ document.addEventListener("DOMContentLoaded", function () {
             marks[x].style.right = parseFloat(distance - (x * 10.00)) + "%";
         }
 
-        // exit_mountains.style.right = parseFloat(distance - 1100.00) + "%";
         background.style.right = parseFloat(distance - 1200.00) + "%";
 
     }
 
     function moveClouds() {
-        // cloud_small.classList.add("cloud_small");
-        //cloud_small.classList.add("cloud_small_animation");
         white_cloud.classList.add("white_cloud_animation");
-        //white_cloud.cla
     }
 
-    /***
-     * For every 1 deg, increase
-     * 
-     */
     setInterval(function () {
         if (craft_rotation <= -16) {
             craft_rotation = -15;
@@ -258,7 +212,6 @@ document.addEventListener("DOMContentLoaded", function () {
             craft.classList.add("cruise_class");
             craft.classList.remove("climb_class");
             craft.classList.remove("descend_class");
-
         } else {
             //display the altitude on instrument
 
@@ -283,7 +236,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 altitude = altitude - 0.05;
                 craft.style.bottom = parseFloat(altitude) + parseFloat(0.05) + "%";
             }
-
         }
     }, 1);
 
@@ -293,8 +245,5 @@ document.addEventListener("DOMContentLoaded", function () {
             altitude = 5.000;
             craft_rotation = 0;
         }
-
-
     }, 1);
-
 });

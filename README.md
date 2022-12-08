@@ -78,21 +78,21 @@ All html elements where tested for intended functionality, all links where teste
 
 <h3>8.1 code validation</h3>
 
-The overall quality of the html, and css code was checked using the [html validator](https://validator.w3.org/) and [jigsaw](https://jigsaw.w3.org/css-validator/validator/) online tools respectively.
+The overall quality of the html, css, and JS code was checked using the [html validator](https://validator.w3.org/), [jigsaw](https://jigsaw.w3.org/css-validator/validator/), and [PiliApp](https://www.piliapp.com/javascript-validator/) online tools respectively.
 
 <h3> 8.2 fixed bugs</h3>
 
-Sample errors found on html code were fixed as shown below
+No errors found on html and JS code
 
-![html errors on validator](./assets/images/project-design/tests/html-error.png)
-
-![html errors corrected](./assets/images/project-design/tests/html-pass.png)
+![html warnings on validator](./assets/images/tests/test_flight.png)
+![html warnings on validator](./assets/images/tests/test_index.png)
+![JS validator result](./assets/images/tests/test_js.png)
 <br>
 Errors found on the css stylesheet were fixed as shown below
 
-![html errors on validator](./assets/images/project-design/tests/css-errors.png)
+![css errors on validator](./assets/images/tests/test_css_error.png)
 
-![html errors on validator](./assets/images/project-design/tests/css-pass.png)
+![css errors cleared on validator](./assets/images/tests/test_css_pass.png)
 <br>
 
 <h3>8.3 supported screens and browsers</h3>
@@ -107,19 +107,19 @@ The site was tested on the browsers listed below
 
 <br>
 
-**Sample test result images with screen resolutions and one physical mobile test on Nokia 9.0**
+**Sample test result images with screen resolutions and one physical mobile test on Samsung S9+**
 
-![responsiveness test PC](./assets/images/project-design/tests/screen-test-pc.png)
+![responsiveness test PC](./assets/images/tests/test_responsive_desktop.png)
 
-![responsiveness test Tablet](./assets/images/project-design/tests/screen-test-tab.png)
+![responsiveness test Tablet](./assets/images/tests/test_responsive_tab.png)
 
-![responsiveness test Mobile](./assets/images/project-design/tests/screen-test-phone.png)
+![responsiveness test Mobile](./assets/images/tests/test_responsive_mobile.png)
 
-![responsiveness test Mobile physical](./assets/images/project-design/tests/screen-test-nokia.png)
+![responsiveness test Mobile physical](./assets/images/tests/test_mobile.jpeg)
 
 **Page loading performace was tested using Lighthouse. Results shown below**
 
-![performance test](./assets/images/project-design/tests/lighthouse-test.png)
+![performance test](./assets/images/project_design/tests/test_lighthouse.png)
 
 <h2>9. Forking and Deployment</h2>
 
@@ -127,19 +127,13 @@ The site was tested on the browsers listed below
 This will make a copy of the project on your github repository.
 
 1. Log into GitHub and locate your repository.
-2. On the top left corner, search for "kedi1991/project01" and select it from the results.
+2. On the top left corner, search for "kedi1991/project-flight-sim" and select it from the results.
 3. On the right hand side of the page select  **fork** to create and copy of the original under your repository
-
-![forking the project](./assets/images/project-design/stories/forking.png)
 
 <h3>9.2 Via gitpod</h3>
 
 To deploy the project using gitpod, run the command `add .` followed by `git commit -m "descripton of code changes to push"` 
 Finally, run `git push` to push the changes to yout github repository.
-
-![Gitpod deploy commands](./assets/images/project-design/stories/gitpod-deploy.png)
-
-![Git deploy OK result](./assets/images/project-design/stories/gitpod-deploy-result.png)
 
 <h3>9.3 Via github pages</h3>
 
@@ -148,9 +142,10 @@ Finally, run `git push` to push the changes to yout github repository.
 3. Go to **Build and deployment** > **Branch**. Select **main** then click **save**.
 4. At the top just below the **GitHub Pages** heading, you will be notified of successful deployment as shown in the image. This may take about 60 seconds to reflect. Incase It takes longer, try refreshing the page.
 
-![git pages deploy settings](./assets/images/project-design/stories/deploy-page.png)
+<h2>10. Known bugs</h2>
+1. Control using the long press on the mobile device controls does not produce the desired effect as that on the keyboard on dektop. This makes the reaction time of the craft so slow.
 
-<h2>13. credits</h2>
+<h2>11. credits</h2>
 
 **Images and other assets from:**
 
