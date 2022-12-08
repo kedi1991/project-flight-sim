@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function deccelerate() {
         acceleration = acceleration + 10;
         movtUnit = movtUnit - 0.001;
-        inst_velocity.innerHTML = "Speed: " + movtUnit * 1000;
+        inst_velocity.innerHTML = "Speed: " + Math.trunc(movtUnit * 1000);
         if (movtUnit <= 0) {
             movtUnit = 0.00;
             playedPrepTaxi = false;

@@ -55,6 +55,13 @@ footer{
     font-weight: bolder;
     text-align: center;
 }
+#about{
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5em;
+    color: rgb(44, 24, 24);
+    font-weight: bolder;
+    text-align: center;
+}
 
 input{
     font-size: xx-large;
