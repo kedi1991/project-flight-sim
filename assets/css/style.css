@@ -47,6 +47,12 @@ footer{
     font-weight: bolder;
     text-align: center;
 }
+#guide{
+    font-family: 'Fredoka One', cursive;
+    font-size: 1em;
+    color: rgb(86, 1, 18);
+    
+}
 
 #failed{
     font-family: 'Fredoka One', cursive;
